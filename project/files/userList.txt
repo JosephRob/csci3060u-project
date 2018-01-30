@@ -1,0 +1,6 @@
+clyve           FS 000099.99
+nestea          SS 001234.56
+qweasd          BS 001234.56
+admin           AA 999999.99
+newUser123      FS 009053.17
+END                         
