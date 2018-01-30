@@ -1,6 +1,4 @@
-//
 //  main.cpp
-//  3060Proj
 //
 //  Created by Clyve Widjaya on 29/01/18.
 //  Copyright © 2018 Clyve Widjaya. All rights reserved.
