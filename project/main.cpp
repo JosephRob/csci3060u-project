@@ -14,12 +14,12 @@
 #include <vector>
 #include <sstream>
 #include "functions/showMenu/showMenu.h"
-//#include "functions/advertise/advertise.h"
-//#include "functions/bid/bid.h"
-//#include "functions/create/create.h"
-//#include "functions/addCredit/addCredit.h"
-//#include "functions/refund/refund.h"
-//#include "functions/delete/delete.h"
+#include "functions/advertise/advertise.h"
+#include "functions/bid/bid.h"
+#include "functions/create/create.h"
+#include "functions/addCredit/addCredit.h"
+#include "functions/refund/refund.h"
+#include "functions/delete/delete.h"
 
 using namespace std;
 
@@ -50,7 +50,7 @@ vector<string> checkUser(string userInput){
                 result.push_back(word);
             }
         }
-        
+
         if (result[0] == userInput){
             inFile.close();
             return result;
@@ -68,7 +68,7 @@ void uploadUpdates(string toAppend, string destination){
             insides += line + "\n";
         }
         fileIn.close();
-        
+
         ofstream fileOut (destination);
         fileOut << insides + toAppend;
         fileOut.close();
@@ -111,13 +111,13 @@ void list(){
 bool userMenu(string userLogName, string userBalance, string userType){
     bool keepGoing = true;
     string menuInput;
-    cout << "\nWelcome to the auction, " + userLogName + "!"<< endl;
-    cout << "Type: " + userType + "\tBalance: $" + userBalance<< endl;
+    cout << "\nWelcome to the auction, " + userLogName + "!" << endl;
+    cout << "Type: " + userType + "\tBalance: $" + userBalance << endl;
     showMenu(userType);
     while (keepGoing == true){
         cout << "What would you like? (Type 'menu' to display menu) ";
         cin >> menuInput;
-        
+
         if (menuInput == "list"){
             list();
         } else if (menuInput == "login"){
@@ -127,6 +127,9 @@ bool userMenu(string userLogName, string userBalance, string userType){
         } else if (menuInput == "add") { //assuming SS cannot add credit
             if (userType != "SS"){
                 //call add function
+                cout << "Output: " + addCredit(userLogName, userBalance, userType) << endl;
+                //Take the return value from calling addCredit and make a line to be
+                //recorded to userDailyUpdate file
             } else {
                 prompt("Admin or Full-Standard or Buy-Standard","add credit");
                 showMenu(userType);
@@ -134,6 +137,9 @@ bool userMenu(string userLogName, string userBalance, string userType){
         } else if (menuInput == "advertise"){
             if (userType != "BS"){
                 //call advertise function
+                cout << "Output: " + advertise() << endl;
+                //Take the return value from calling advertise and make a line to be
+                //recorded to userDailyUpdate file
             } else {
                 prompt("Admin or Full-Standard or Sell-Standard","advertise");
                 showMenu(userType);
@@ -141,6 +147,9 @@ bool userMenu(string userLogName, string userBalance, string userType){
         } else if (menuInput == "bid") {
             if (userType != "SS"){
                 //call bid function
+                cout << "Output: " + bid(userLogName) << endl;
+                //Take the return value from calling bid and make a line to be
+                //recorded to userDailyUpdate file
             } else {
                 prompt("Admin or Full-Standard or Buy-Standard","bidding");
                 showMenu(userType);
@@ -148,6 +157,9 @@ bool userMenu(string userLogName, string userBalance, string userType){
         } else if (menuInput == "create"){
             if (userType == "AA"){
                 //call create function
+                cout << "Output: " + create(userLogName) << endl;
+                //Take the return value from calling create and make a line to be
+                //recorded to userDailyUpdate file
             } else {
                 prompt("Admin","create");
                 showMenu(userType);
@@ -155,6 +167,9 @@ bool userMenu(string userLogName, string userBalance, string userType){
         } else if (menuInput == "delete"){
             if (userType == "AA"){
                 //call delete function
+                cout << "Output: " + deleteUser(userLogName) << endl;
+                //Take the return value from calling deleteUser and make a line to be
+                //recorded to userDailyUpdate file
             } else {
                 prompt("Admin","delete");
                 showMenu(userType);
@@ -162,6 +177,9 @@ bool userMenu(string userLogName, string userBalance, string userType){
         } else if (menuInput == "refund"){
             if (userType == "AA"){
                 //call refund function
+                cout << "Output: " + refund() << endl;
+                //Take the return value from calling refund and make a line to be
+                //recorded to userDailyUpdate file
             } else {
                 prompt("Admin","refund");
                 showMenu(userType);
@@ -182,10 +200,10 @@ int main(int argc, const char * argv[]) {
     bool loggedOut = true; //when system starts, everyone is initially logged out
     string userInput;
     string funcs[] = {"advertise", "bid", "create", "delete", "refund", "add"};
-    
+
     //user info
     string userLogName, userType, userBalance;
-    
+
     cout << "Enter command 'login' to login, or 'cancel' to cancel\n> ";
     while(loggedIn == false){
         cin >> userInput;
@@ -227,7 +245,7 @@ int main(int argc, const char * argv[]) {
             }
         }
     }
-    
+
     while(loggedIn == true && loggedOut == false){
         if ((userType != "AA") || (userType != "FS") || (userType != "BS") || (userType != "SS")){
             bool users = userMenu(userLogName, userBalance, userType);
@@ -238,7 +256,7 @@ int main(int argc, const char * argv[]) {
             }
         }
     }
-    
+
     cout << "Good bye" << endl;
     //Before system stops, we have to push whats inside userDailyUpdate.txt to dailyUpdate.txt, then delete that userDailyUpdate.txt
     string userDailyInsides, dailyUpdateInsides, line;
@@ -248,18 +266,18 @@ int main(int argc, const char * argv[]) {
     }
     fileIn.close();
     line = "";
-    
+
     fileIn.open("files/dailyUpdate.txt");
     while (getline(fileIn,line)){
         dailyUpdateInsides += line + "\n";
     }
     fileIn.close();
-    
+
     ofstream fileOut ("files/dailyUpdate.txt");
     fileOut << dailyUpdateInsides + userDailyInsides;
     fileOut.close();
-    
+
     remove("files/userDailyUpdate.txt");
-    
+
     return 0;
 }
