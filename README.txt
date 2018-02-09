@@ -1,7 +1,7 @@
 # csci3060u-project
 To run the file
 
-type 'make all' in terminal
+type 'make' in terminal
 then './theProgram'
 
 note:
