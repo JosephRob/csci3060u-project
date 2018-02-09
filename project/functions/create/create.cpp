@@ -23,7 +23,12 @@ string create(string userLogName){
       //check if balance not negative, and not more than 999999.99
   }
 
+  //if process of create user successfull,
   //will return a string with format of "newUserName,accountType,balance"
+
+  //if cancel is entered anywhere when asking for username, usertype, balance,
+  //will return a string "cancel" and stop creating process
+
   //but for now we wil return "create function is called"
 
   return isCalled;

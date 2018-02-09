@@ -11,6 +11,7 @@ string advertise(){
   cin.ignore();// this will receive space
   getline(cin, name);
 
+  //alter item name to change space into _
   for (int i = 0; i < name.length(); i++){
       if (name[i] != ' '){
           alteredName += name[i];
@@ -26,6 +27,10 @@ string advertise(){
 
   //Assuming that there is no error while the user input, this function will return a string with
   //format of "alteredName,value,days". so each value divided by comma
+
+  //if cancel is entered during advertise process, will return string "cancel" and stop
+  //the advertise process
+  
   //For now we just return the string "advertise function is called"
   return isCalled;
 }
