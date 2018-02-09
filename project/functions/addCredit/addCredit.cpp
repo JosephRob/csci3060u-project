@@ -1,11 +1,13 @@
 #include "addCredit.h"
 #include <iostream>
 #include <string>
-string addCredit(string userLogName, string userBalance, string userType){
+
+addCreditClass::addCreditClass(){}
+string addCreditClass::addCredit(string userLogName, string userBalance, string userType){
   string isCalled = "add credit function is called";
   double addBalance;
   string targetUsername;
-  
+
   cout << "How much money to add? Max $1000.00 per day. (e.g. 12.45 to add $12.45)" << endl;
   cout << "Add balance: $";
   cin >> addBalance;

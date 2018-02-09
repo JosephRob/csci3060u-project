@@ -2,7 +2,8 @@
 #include <iostream>
 #include <string>
 
-string advertise(){
+advertiseClass::advertiseClass(){}
+string advertiseClass::advertise(){
   string isCalled = "advertise function is called";
   string name, days, alteredName;
   double value;
@@ -30,7 +31,7 @@ string advertise(){
 
   //if cancel is entered during advertise process, will return string "cancel" and stop
   //the advertise process
-  
+
   //For now we just return the string "advertise function is called"
   return isCalled;
 }

@@ -1,7 +1,9 @@
 #include "refund.h"
 #include <iostream>
 #include <string>
-string refund(){
+
+refundClass::refundClass(){}
+string refundClass::refund(){
   string isCalled = "refund function is called";
   string sellerName, buyerName;
   double balanceToReturn;

@@ -2,5 +2,10 @@
 #define __REFUND_H_INCLUDED__
 #include <string>
 using namespace std;
-string refund();
+class refundClass{
+public:
+  refundClass();
+  string refund();
+};
+//string refund();
 #endif

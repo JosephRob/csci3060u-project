@@ -1,7 +1,9 @@
 #include "create.h"
 #include <iostream>
 #include <string>
-string create(string userLogName){
+
+createClass::createClass(){}
+string createClass::create(string userLogName){
   string isCalled = "create function is called";
   string username, usertype, balance;
   double balInDb;
@@ -10,7 +12,7 @@ string create(string userLogName){
   getline(cin, username);
   //check if username between 15 characters, but not now
 
-  cout << "User Type (AA = Admin, FS = Full-Standard, BS = Buy-Standard, SS = Sell-Standard): ";
+  cout << "User Type (AA = Admin, FS = Full-Standard, BS = Buy-Standard, SS = Sell-Standard)\n> ";
   cin >> usertype;
 
   if (usertype == "AA"){

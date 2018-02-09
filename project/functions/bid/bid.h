@@ -2,5 +2,10 @@
 #define __BID_H_INCLUDED__
 #include <string>
 using namespace std;
-string bid(string userLogName);
+class bidClass{
+public:
+  bidClass();
+  string bid(string userLogName);
+};
+//string bid(string userLogName);
 #endif

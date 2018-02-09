@@ -3,5 +3,10 @@
 
 #include <string>
 using namespace std;
-string advertise();
+class advertiseClass{
+public:
+  advertiseClass();
+  string advertise();
+};
+//string advertise();
 #endif

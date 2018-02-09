@@ -1,7 +1,9 @@
 #include "delete.h"
 #include <iostream>
 #include <string>
-string deleteUser(string userLogName){
+
+deleteClass::deleteClass(){}
+string deleteClass::deleteUser(string userLogName){//need to pass userLogName to function to make sure admin doesnt delete himself
   string isCalled = "delete function is called";
   string userToDel, confirmation;
   cout << "Enter username to be deleted" << endl;
@@ -9,7 +11,7 @@ string deleteUser(string userLogName){
   cin >> userToDel;
   //check if userToDel is not user itself and check if user exist
 
-  cout << "Are you sure you want to delete " + userToDel + " ? (yes/no): " << endl;
+  cout << "Are you sure you want to delete " + userToDel + " ? (yes/no):\n> ";
   cin >> confirmation;
 
   //check if yes then delete all assets, if no then cancel deleted

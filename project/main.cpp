@@ -127,7 +127,8 @@ bool userMenu(string userLogName, string userBalance, string userType){
         } else if (menuInput == "add") { //assuming SS cannot add credit
             if (userType != "SS"){
                 //call add function
-                cout << "Output: " + addCredit(userLogName, userBalance, userType) << endl;
+                addCreditClass add;
+                cout << "Output: " + add.addCredit(userLogName, userBalance, userType) << endl;
                 //Take the return value from calling addCredit and make a line to be
                 //recorded to userDailyUpdate file
             } else {
@@ -137,7 +138,8 @@ bool userMenu(string userLogName, string userBalance, string userType){
         } else if (menuInput == "advertise"){
             if (userType != "BS"){
                 //call advertise function
-                cout << "Output: " + advertise() << endl;
+                advertiseClass adver;
+                cout << "Output: " + adver.advertise() << endl;
                 //Take the return value from calling advertise and make a line to be
                 //recorded to userDailyUpdate file
             } else {
@@ -147,7 +149,8 @@ bool userMenu(string userLogName, string userBalance, string userType){
         } else if (menuInput == "bid") {
             if (userType != "SS"){
                 //call bid function
-                cout << "Output: " + bid(userLogName) << endl;
+                bidClass bid;
+                cout << "Output: " + bid.bid(userLogName) << endl;
                 //Take the return value from calling bid and make a line to be
                 //recorded to userDailyUpdate file
             } else {
@@ -157,7 +160,8 @@ bool userMenu(string userLogName, string userBalance, string userType){
         } else if (menuInput == "create"){
             if (userType == "AA"){
                 //call create function
-                cout << "Output: " + create(userLogName) << endl;
+                createClass create;
+                cout << "Output: " + create.create(userLogName) << endl;
                 //Take the return value from calling create and make a line to be
                 //recorded to userDailyUpdate file
             } else {
@@ -167,7 +171,8 @@ bool userMenu(string userLogName, string userBalance, string userType){
         } else if (menuInput == "delete"){
             if (userType == "AA"){
                 //call delete function
-                cout << "Output: " + deleteUser(userLogName) << endl;
+                deleteClass deleteC;
+                cout << "Output: " + deleteC.deleteUser(userLogName) << endl;
                 //Take the return value from calling deleteUser and make a line to be
                 //recorded to userDailyUpdate file
             } else {
@@ -177,7 +182,8 @@ bool userMenu(string userLogName, string userBalance, string userType){
         } else if (menuInput == "refund"){
             if (userType == "AA"){
                 //call refund function
-                cout << "Output: " + refund() << endl;
+                refundClass refund;
+                cout << "Output: " + refund.refund() << endl;
                 //Take the return value from calling refund and make a line to be
                 //recorded to userDailyUpdate file
             } else {

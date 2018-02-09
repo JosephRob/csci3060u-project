@@ -2,5 +2,10 @@
 #define __CREATE_H_INCLUDED__
 #include <string>
 using namespace std;
-string create(string userLogName);
+class createClass{
+public:
+  createClass();
+  string create(string userLogName);
+};
+//string create(string userLogName);
 #endif
