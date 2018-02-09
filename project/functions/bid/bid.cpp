@@ -10,21 +10,25 @@ bidClass::bidClass(){
 
 bool bidClass::bid(){
   string name, owner;
-  int value;
+  double value;
 
   cout << "\nBid Menu" << endl;
   cout << "Item Name: ";
   cin.ignore();
   getline (cin,name);
+  itemName = name;
   //check if name of item exists, but for now we dont, we just assume user input an existing item name
 
   cout << "\nEnter Seller Username" << endl;
   cout << "Username: ";
-  cin >> itemOwner;
+  cin >> owner;
+  itemOwner = owner;
+
   //check if it itemOwner exists with the item name to be bid.
 
   cout << "Bid Value (e.g. 9053 for $9053.00, max $999999): $";
   cin >> value;
+  bidValue = value;
   //check if bid value is at least 5%, except Admin
 
   //if success, this function will return true

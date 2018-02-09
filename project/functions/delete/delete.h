@@ -4,7 +4,8 @@
 using namespace std;
 class deleteClass{
 public:
-  string deleteUserName;
+  string deleteUserName, userType;
+  double userBalance;
   deleteClass();
   bool deleteUser(string userLogName);
 };

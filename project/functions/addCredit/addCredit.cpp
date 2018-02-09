@@ -19,10 +19,12 @@ bool addCreditClass::addCredit(string userLogName, string userBalance, string us
   credit = addBalance;
 
   //if admin does the addCredit, will ask the target userName
-  cout << "Input target username" << endl;
-  cout << "Username: ";
-  cin >> target;
-  targetUserName = target;
+  if (userType == "AA"){
+    cout << "Input target username" << endl;
+    cout << "Username: ";
+    cin >> target;
+    targetUserName = target;
+  }
 
   //if cancel is entered during add credit process, will return false and stop add
   //credit process

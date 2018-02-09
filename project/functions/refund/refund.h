@@ -5,7 +5,7 @@ using namespace std;
 class refundClass{
 public:
   string sellerName, buyerName;
-  double balance;
+  double credit;
   refundClass();
   bool refund();
 };

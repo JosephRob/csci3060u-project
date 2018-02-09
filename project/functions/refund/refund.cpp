@@ -5,7 +5,7 @@
 refundClass::refundClass(){
   sellerName = "";
   buyerName = "";
-  balance = 0.0;
+  credit = 0.0;
 }
 
 bool refundClass::refund(){
@@ -14,11 +14,11 @@ bool refundClass::refund(){
 
   cout << "Enter buyer username" << endl;
   cout << "Username: ";
-  cin >> buyerName;
+  cin >> buyer;
 
   cout << "Enter seller username" << endl;
   cout << "Username: ";
-  cin >> sellerName;
+  cin >> seller;
 
   cout << "Enter balance to be returned" << endl;
   cout << "Balance: $";
@@ -30,7 +30,7 @@ bool refundClass::refund(){
 
   sellerName = seller;
   buyerName = buyer;
-  balance = balanceToReturn;
+  credit = balanceToReturn;
 
   //if refund success, will return true
   //if refund process is cancelled, (balance of seller is negative after deduction or cancel is entered),

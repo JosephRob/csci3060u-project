@@ -5,6 +5,7 @@
 #include <fstream>
 #include <vector>
 #include <sstream>
+#include <iomanip>
 #include "functions/showMenu/showMenu.h"
 #include "functions/advertise/advertise.h"
 #include "functions/bid/bid.h"
@@ -102,6 +103,7 @@ void list(){
 
 bool userMenu(string userLogName, string userBalance, string userType){
     bool keepGoing = true;
+    string appendLine;
     string menuInput;
     cout << "\nWelcome to the auction, " + userLogName + "!" << endl;
     cout << "Type: " + userType + "\tBalance: $" + userBalance << endl;
@@ -122,12 +124,24 @@ bool userMenu(string userLogName, string userBalance, string userType){
                 addCreditClass add;
                 if (add.addCredit(userLogName, userBalance, userType) == true){
                   //this is just example of output
-                  cout << "Output: add credit process is done"<< endl;
+                  cout << "Output: add credit process is done" << endl;
+
+                  string bal;
+                  stringstream val;
+                  val << fixed << setprecision(2) << add.credit;
+                  bal = val.str();
+                  
+                  if (userType == "AA"){
+                    appendLine = "06 " + add.targetUserName + spaceFiller(15, " ", add.targetUserName) + " " + userType + " " + spaceFiller(9, "0", bal) + bal;
+                  } else {
+                    appendLine = "06 " + userLogName + spaceFiller(15, " ", userLogName) + " " + userType + " " + spaceFiller(9, "0", bal) + bal;
+                  }
+                  cout << appendLine << endl;
+                  appendLine = "";
                 } else {
                   cout << "Output: process is cancelled" << endl;
                 }
-                //Take the return value from calling addCredit and make a line to be
-                //recorded to userDailyUpdate file
+                //append line will then be uploaded to userDailyUpdate.txt
             } else {
                 prompt("Admin or Full-Standard or Buy-Standard","add credit");
                 showMenu(userType);
@@ -139,11 +153,22 @@ bool userMenu(string userLogName, string userBalance, string userType){
                 if (adver.advertise() == true){
                   //this is just example of output
                   cout << "Output: advertise process is done" << endl;
+
+                  string startValue, marketDays;
+                  stringstream stVal;
+                  stVal << fixed << setprecision(2) << adver.startingValue;
+                  startValue = stVal.str();
+                  stringstream mktDays;
+                  mktDays << adver.marketDays;
+                  mktDays >> marketDays;
+
+                  appendLine = "03 " + adver.itemName + spaceFiller(25, " ", adver.itemName)  + " " + userLogName + spaceFiller(15, " ", userLogName) + " " + spaceFiller(3, "0", marketDays) + marketDays + " " + spaceFiller(6, "0", startValue) + startValue;
+                  cout << appendLine << endl;
+                  appendLine = "";
                 } else {
                   cout << "Output: process is cancelled" << endl;
                 }
-                //Take the return value from calling advertise and make a line to be
-                //recorded to userDailyUpdate file
+                //append line will then be uploaded to userDailyUpdate.txt
             } else {
                 prompt("Admin or Full-Standard or Sell-Standard","advertise");
                 showMenu(userType);
@@ -155,11 +180,19 @@ bool userMenu(string userLogName, string userBalance, string userType){
                 if(bid.bid() == true){
                   //this is just example of output
                   cout << "Output: bid process is done" << endl;
+
+                  string bidVal;
+                  stringstream val;
+                  val << fixed << setprecision(2) << bid.bidValue;
+                  bidVal = val.str();
+
+                  appendLine = "04 " + bid.itemName + spaceFiller(25, " ", bid.itemName) + " " + bid.itemOwner + spaceFiller(15, " ", bid.itemOwner) + " " + userLogName + spaceFiller(15, " ", userLogName) + " " + spaceFiller(6, "0", bidVal) + bidVal;
+                  cout << appendLine << endl;
+                  appendLine = "";
                 } else {
                   cout << "Output: process is cancelled" << endl;
                 }
-                //Take the return value from calling bid and make a line to be
-                //recorded to userDailyUpdate file
+                //append line will then be uploaded to userDailyUpdate.txt
             } else {
                 prompt("Admin or Full-Standard or Buy-Standard","bidding");
                 showMenu(userType);
@@ -171,11 +204,19 @@ bool userMenu(string userLogName, string userBalance, string userType){
                 if(create.create(userLogName) == true){
                   //this is just example of output
                   cout << "Output: create process is done" << endl;
+
+                  string startVal;
+                  stringstream val;
+                  val << fixed << setprecision(2) << create.newBalance;
+                  startVal = val.str();
+
+                  appendLine = "01 " + create.newUserName + spaceFiller(15, " ", create.newUserName) + " " + create.newUserType + " " + spaceFiller(9, "0", startVal) + startVal;
+                  cout << appendLine << endl;
+                  appendLine = "";
                 } else {
                   cout << "Output: process is cancelled" << endl;
                 }
-                //Take the return value from calling create and make a line to be
-                //recorded to userDailyUpdate file
+                //append line will then be uploaded to userDailyUpdate.txt
             } else {
                 prompt("Admin","create");
                 showMenu(userType);
@@ -187,11 +228,19 @@ bool userMenu(string userLogName, string userBalance, string userType){
                 if(deleteC.deleteUser(userLogName) == true){
                   //this is just example of output
                   cout << "Output: delete process is done" << endl;
+
+                  string curBalance;
+                  stringstream val;
+                  val << fixed << setprecision(2) << deleteC.userBalance;
+                  curBalance = val.str();
+
+                  appendLine = "02 " + deleteC.deleteUserName + spaceFiller(15, " ", deleteC.deleteUserName) + " " + deleteC.userType + " " + spaceFiller(9, "0", curBalance) + curBalance;
+                  cout << appendLine << endl;
+                  appendLine = "";
                 } else {
                   cout << "Output: process is cancelled" << endl;
                 }
-                //Take the return value from calling deleteUser and make a line to be
-                //recorded to userDailyUpdate file
+                //append line will then be uploaded to userDailyUpdate.txt
             } else {
                 prompt("Admin","delete");
                 showMenu(userType);
@@ -203,11 +252,19 @@ bool userMenu(string userLogName, string userBalance, string userType){
                 if(refund.refund() == true){
                   //this is just example of output
                   cout << "Output: refund process is done" << endl;
+
+                  string refundCredit;
+                  stringstream val;
+                  val << fixed << setprecision(2) << refund.credit;
+                  refundCredit = val.str();
+
+                  appendLine = "05 " + refund.buyerName + spaceFiller(15, " ", refund.buyerName) + " " + refund.sellerName + spaceFiller(15, " ", refund.sellerName) + " " + spaceFiller(9, "0", refundCredit) + refundCredit;
+                  cout << appendLine << endl;
+                  appendLine = "";
                 } else {
                   cout << "Output: process is cancelled" << endl;
                 }
-                //Take the return value from calling refund and make a line to be
-                //recorded to userDailyUpdate file
+                //append line will then be uploaded to userDailyUpdate.txt
             } else {
                 prompt("Admin","refund");
                 showMenu(userType);

@@ -9,5 +9,4 @@ public:
   addCreditClass();
   bool addCredit(string userLogName, string userBalance, string userType);
 };
-//string addCredit(string userLogName, string userBalance, string userType);
 #endif
