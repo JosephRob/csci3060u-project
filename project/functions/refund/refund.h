@@ -4,8 +4,10 @@
 using namespace std;
 class refundClass{
 public:
+  string sellerName, buyerName;
+  double balance;
   refundClass();
-  string refund();
+  bool refund();
 };
 //string refund();
 #endif

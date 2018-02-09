@@ -4,8 +4,10 @@
 using namespace std;
 class addCreditClass{
 public:
+  double credit;
+  string targetUserName;
   addCreditClass();
-  string addCredit(string userLogName, string userBalance, string userType);
+  bool addCredit(string userLogName, string userBalance, string userType);
 };
 //string addCredit(string userLogName, string userBalance, string userType);
 #endif

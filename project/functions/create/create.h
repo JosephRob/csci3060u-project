@@ -4,8 +4,10 @@
 using namespace std;
 class createClass{
 public:
+  string newUserName, newUserType;
+  double newBalance;
   createClass();
-  string create(string userLogName);
+  bool create(string userLogName);
 };
 //string create(string userLogName);
 #endif

@@ -128,7 +128,12 @@ bool userMenu(string userLogName, string userBalance, string userType){
             if (userType != "SS"){
                 //call add function
                 addCreditClass add;
-                cout << "Output: " + add.addCredit(userLogName, userBalance, userType) << endl;
+                if (add.addCredit(userLogName, userBalance, userType) == true){
+                  //this is just example of output
+                  cout << "Output: add credit process is done"<< endl;
+                } else {
+                  cout << "Output: process is cancelled" << endl;
+                }
                 //Take the return value from calling addCredit and make a line to be
                 //recorded to userDailyUpdate file
             } else {
@@ -139,7 +144,12 @@ bool userMenu(string userLogName, string userBalance, string userType){
             if (userType != "BS"){
                 //call advertise function
                 advertiseClass adver;
-                cout << "Output: " + adver.advertise() << endl;
+                if (adver.advertise() == true){
+                  //this is just example of output
+                  cout << "Output: advertise process is done" << endl;
+                } else {
+                  cout << "Output: process is cancelled" << endl;
+                }
                 //Take the return value from calling advertise and make a line to be
                 //recorded to userDailyUpdate file
             } else {
@@ -150,7 +160,12 @@ bool userMenu(string userLogName, string userBalance, string userType){
             if (userType != "SS"){
                 //call bid function
                 bidClass bid;
-                cout << "Output: " + bid.bid(userLogName) << endl;
+                if(bid.bid() == true){
+                  //this is just example of output
+                  cout << "Output: bid process is done" << endl;
+                } else {
+                  cout << "Output: process is cancelled" << endl;
+                }
                 //Take the return value from calling bid and make a line to be
                 //recorded to userDailyUpdate file
             } else {
@@ -161,7 +176,12 @@ bool userMenu(string userLogName, string userBalance, string userType){
             if (userType == "AA"){
                 //call create function
                 createClass create;
-                cout << "Output: " + create.create(userLogName) << endl;
+                if(create.create(userLogName) == true){
+                  //this is just example of output
+                  cout << "Output: create process is done" << endl;
+                } else {
+                  cout << "Output: process is cancelled" << endl;
+                }
                 //Take the return value from calling create and make a line to be
                 //recorded to userDailyUpdate file
             } else {
@@ -172,7 +192,12 @@ bool userMenu(string userLogName, string userBalance, string userType){
             if (userType == "AA"){
                 //call delete function
                 deleteClass deleteC;
-                cout << "Output: " + deleteC.deleteUser(userLogName) << endl;
+                if(deleteC.deleteUser(userLogName) == true){
+                  //this is just example of output
+                  cout << "Output: delete process is done" << endl;
+                } else {
+                  cout << "Output: process is cancelled" << endl;
+                }
                 //Take the return value from calling deleteUser and make a line to be
                 //recorded to userDailyUpdate file
             } else {
@@ -183,7 +208,12 @@ bool userMenu(string userLogName, string userBalance, string userType){
             if (userType == "AA"){
                 //call refund function
                 refundClass refund;
-                cout << "Output: " + refund.refund() << endl;
+                if(refund.refund() == true){
+                  //this is just example of output
+                  cout << "Output: refund process is done" << endl;
+                } else {
+                  cout << "Output: process is cancelled" << endl;
+                }
                 //Take the return value from calling refund and make a line to be
                 //recorded to userDailyUpdate file
             } else {

@@ -5,8 +5,11 @@
 using namespace std;
 class advertiseClass{
 public:
+  string itemName;
+  double startingValue;
+  int marketDays;
   advertiseClass();
-  string advertise();
+  bool advertise();
 };
 //string advertise();
 #endif

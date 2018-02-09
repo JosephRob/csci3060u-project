@@ -2,9 +2,11 @@
 #include <iostream>
 #include <string>
 
-deleteClass::deleteClass(){}
-string deleteClass::deleteUser(string userLogName){//need to pass userLogName to function to make sure admin doesnt delete himself
-  string isCalled = "delete function is called";
+deleteClass::deleteClass(){
+  deleteUserName = "";
+}
+
+bool deleteClass::deleteUser(string userLogName){//need to pass userLogName to function to make sure admin doesnt delete himself
   string userToDel, confirmation;
   cout << "Enter username to be deleted" << endl;
   cout << "Username: ";
@@ -13,11 +15,15 @@ string deleteClass::deleteUser(string userLogName){//need to pass userLogName to
 
   cout << "Are you sure you want to delete " + userToDel + " ? (yes/no):\n> ";
   cin >> confirmation;
+  if (confirmation == "yes"){
+    //if confirmation of delete is a yes
+    deleteUserName = userToDel;
+  } else {
+    //this function will return false if confirmation says no
+    //and stop process of delete user
+    //return false;
+  }
 
-  //check if yes then delete all assets, if no then cancel deleted
-  //For the return, we will return a string with format of "userToDel"
-  //If confirmation is equal to "no", then will cancel deleteuser, and return "cancel" that will
-  //stop the process of delete user
-  //For now we will return "delete function is called"
-  return isCalled;
+  //For now we will return true
+  return true;
 }

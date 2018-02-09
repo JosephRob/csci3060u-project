@@ -4,8 +4,10 @@
 using namespace std;
 class bidClass{
 public:
+  string itemName, itemOwner;
+  double bidValue;
   bidClass();
-  string bid(string userLogName);
+  bool bid();
 };
 //string bid(string userLogName);
 #endif

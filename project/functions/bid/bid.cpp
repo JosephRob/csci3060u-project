@@ -2,10 +2,14 @@
 #include <iostream>
 #include <string>
 
-bidClass::bidClass(){}
-string bidClass::bid(string userLogName){ //we need userLogName passed to bid function so that owner cannot bid his own item
-  string isCalled = "bid function is called";
-  string name, itemOwner;
+bidClass::bidClass(){
+  itemName = "";
+  itemOwner = "";
+  bidValue = 0.0;
+}
+
+bool bidClass::bid(){
+  string name, owner;
   int value;
 
   cout << "\nBid Menu" << endl;
@@ -23,11 +27,11 @@ string bidClass::bid(string userLogName){ //we need userLogName passed to bid fu
   cin >> value;
   //check if bid value is at least 5%, except Admin
 
-  //if success, this function will return a string with format of "itemname,itemowner,bidvalue"
+  //if success, this function will return true
 
-  //if cancel is entered during bid process, will return string "cancel" to stop bid process
+  //if cancel is entered during bid process, will return false to stop bid process
   //and redirect to menu
 
-  //separate by comma. But for now will return "bid function is called"
-  return isCalled;
+  //But for now will return true because we assume user/admin used bid class correctly
+  return true;
 }
