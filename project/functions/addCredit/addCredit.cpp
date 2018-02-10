@@ -2,12 +2,22 @@
 #include <iostream>
 #include <string>
 
+/*
+This is the constructor function,
+sets all the public variables for the first time
+*/
 addCreditClass::addCreditClass(){
   credit = 0.0;
   targetUserName = "";
 }
 
-bool addCreditClass::addCredit(string userLogName, string userBalance, string userType){
+/*
+This is the addCredit function itself.
+It is currently not 100% complete.
+It takes userType as an argument to check if the user is admin or not, because
+if it is admin, this function needs to have the target username.
+*/
+bool addCreditClass::addCredit(string userType){
   double addBalance;
   string target;
 

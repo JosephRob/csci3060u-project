@@ -2,6 +2,10 @@
 #define __REFUND_H_INCLUDED__
 #include <string>
 using namespace std;
+/*
+This is the refund class
+This class has 2 functions, constructor and refund function itself
+*/
 class refundClass{
 public:
   string sellerName, buyerName;
@@ -9,5 +13,4 @@ public:
   refundClass();
   bool refund();
 };
-//string refund();
 #endif

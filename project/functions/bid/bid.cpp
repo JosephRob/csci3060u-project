@@ -2,12 +2,19 @@
 #include <iostream>
 #include <string>
 
+/*
+This is the constructor for bid class
+This sets initial value for the variables
+*/
 bidClass::bidClass(){
   itemName = "";
   itemOwner = "";
   bidValue = 0.0;
 }
 
+/*
+This is the bid function itself.
+*/
 bool bidClass::bid(){
   string name, owner;
   double value;

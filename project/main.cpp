@@ -17,6 +17,13 @@
 using namespace std;
 
 //HELPER FUNCTIONS
+/*
+Space filler function will basically fill spaces.
+For example,
+username has 15 characters max, and say a there is a user with 12 characters for
+their username, this function will fill the 3 characters with what ever is passed
+as the filler. (either ' ' or '0')
+*/
 string spaceFiller(int totChar, string filler, string word){
     string fill;
     for (int i = 0; i < (totChar-word.length());i++){
@@ -25,11 +32,24 @@ string spaceFiller(int totChar, string filler, string word){
     return fill;
 }
 
+/*
+This function will basically print messages if an account entered functions that
+are not permitted for them.
+For example, an FS account, entered create.
+this function will print the altered message saying that only admin can create
+*/
 void prompt(string users, string mode){
     cout << "\nYour account type does not support " + mode + "."<< endl;
     cout << "Only " + users + " support this option." << endl;
 }
 
+/*
+This function will check if user exists in user list file
+so that logging in is possible.
+This function will a vector with 3 data inside, userLogName, userType
+and userBalance, if the user is found in the file. If a user
+is not in a file, this function will return a vector with no data.
+*/
 vector<string> checkUser(string userInput){
     string line, word;
     ifstream inFile ("files/userList.txt");
@@ -53,6 +73,10 @@ vector<string> checkUser(string userInput){
     return toReturn;
 }
 
+/*
+This function will basically append line passed to this function
+to the destination file passed to this function.
+*/
 void uploadUpdates(string toAppend, string destination){
     string insides, line;
     ifstream fileIn (destination);
@@ -72,6 +96,10 @@ void uploadUpdates(string toAppend, string destination){
     }
 }
 
+/*
+This function will list all the items in itemList.txt
+printing them like a table
+*/
 void list(){
     string insides, theLine, line;
     ifstream duFileI ("files/itemList.txt");
@@ -101,6 +129,13 @@ void list(){
     duFileI.close();
 }
 
+/*
+This function is where the logic of the menu located. So this function,
+will basically loop forever to display menu of what users can do,
+and the page where users can interact with the program.
+This function will return true if user wants to logout. and it will be received by
+the main function, and main function will do process of logout
+*/
 bool userMenu(string userLogName, string userBalance, string userType){
     bool keepGoing = true;
     string appendLine;
@@ -122,7 +157,7 @@ bool userMenu(string userLogName, string userBalance, string userType){
             if (userType != "SS"){
                 //call add function
                 addCreditClass add;
-                if (add.addCredit(userLogName, userBalance, userType) == true){
+                if (add.addCredit(userType) == true){
                   //this is just example of output
                   cout << "Output: add credit process is done" << endl;
 
@@ -130,7 +165,7 @@ bool userMenu(string userLogName, string userBalance, string userType){
                   stringstream val;
                   val << fixed << setprecision(2) << add.credit;
                   bal = val.str();
-                  
+
                   if (userType == "AA"){
                     appendLine = "06 " + add.targetUserName + spaceFiller(15, " ", add.targetUserName) + " " + userType + " " + spaceFiller(9, "0", bal) + bal;
                   } else {
@@ -334,7 +369,7 @@ int main(int argc, const char * argv[]) {
     while(loggedIn == true && loggedOut == false){
         if ((userType != "AA") || (userType != "FS") || (userType != "BS") || (userType != "SS")){
             bool users = userMenu(userLogName, userBalance, userType);
-            if (users == true){ //true means logged out is called
+            if (users == true){ //true means log out is called
                 uploadUpdates("00 " + userLogName + spaceFiller(15, " ", userLogName) + " " + userType + " " + spaceFiller(9, "0", userBalance) + userBalance + "\n","files/userDailyUpdate.txt");
                 loggedOut = true;
                 break;

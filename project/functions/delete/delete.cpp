@@ -2,13 +2,22 @@
 #include <iostream>
 #include <string>
 
+/*
+This is the constructor for delete class
+This sets initial value to variables
+*/
 deleteClass::deleteClass(){
   deleteUserName = "";
   userType = "";
   userBalance = 0.0;
 }
 
-bool deleteClass::deleteUser(string userLogName){//need to pass userLogName to function to make sure admin doesnt delete himself
+/*
+This is the deleteUser function.
+It takes 1 argument and it is admin's userLogName
+to make sure admin cannot delete himself.
+*/
+bool deleteClass::deleteUser(string userLogName){
   string userToDel, confirmation;
   cout << "Enter username to be deleted" << endl;
   cout << "Username: ";

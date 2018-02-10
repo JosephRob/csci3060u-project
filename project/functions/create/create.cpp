@@ -2,12 +2,21 @@
 #include <iostream>
 #include <string>
 
+/*
+This is the constructor
+This sets the variables into initial values
+*/
 createClass::createClass(){
   newUserName = "";
   newUserType = "";
   newBalance = 0.0;
 }
 
+/*
+This is the create function,
+current userLogName, so admin,
+cannot create another admin with the same name as his.
+*/
 bool createClass::create(string userLogName){
   string username, usertype, balance;
   double balInDb;

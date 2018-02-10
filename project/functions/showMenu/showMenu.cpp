@@ -1,6 +1,9 @@
 #include "showMenu.h"
 #include <iostream>
 #include <string>
+
+//this is the show menu function, it takes userType as argument
+//to show the correct menu.
 void showMenu(string userType){
     cout << "\nMenus: " << endl;
     if (userType == "FS"){
@@ -23,4 +26,3 @@ void showMenu(string userType){
     cout << "list = List all items available\n" << endl;
     cout << "logout = Log out" << endl;
 }
-

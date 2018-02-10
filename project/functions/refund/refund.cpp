@@ -2,12 +2,20 @@
 #include <iostream>
 #include <string>
 
+
+/*
+This is the refund class constructor
+this sets initial values to variables
+*/
 refundClass::refundClass(){
   sellerName = "";
   buyerName = "";
   credit = 0.0;
 }
 
+/*
+This is the refund function
+*/
 bool refundClass::refund(){
   string seller, buyer;
   double balanceToReturn;

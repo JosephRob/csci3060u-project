@@ -3,6 +3,11 @@
 
 #include <string>
 using namespace std;
+/*
+This is the class for advertise function
+In this class, there are 2 functions, the constructor
+and the advertise function itself
+*/
 class advertiseClass{
 public:
   string itemName;
@@ -11,5 +16,4 @@ public:
   advertiseClass();
   bool advertise();
 };
-//string advertise();
 #endif

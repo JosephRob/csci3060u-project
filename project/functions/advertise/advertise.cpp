@@ -2,12 +2,20 @@
 #include <iostream>
 #include <string>
 
+/*
+This is the constructor function, will set the
+public variables with initial value
+*/
 advertiseClass::advertiseClass(){
   itemName = "";
   startingValue = 0.0;
   marketDays = 0;
 }
 
+/*
+This is the advertise function.
+Advertise does not take any argument.
+*/
 bool advertiseClass::advertise(){
   string isCalled = "advertise function is called";
   string name, alteredName;

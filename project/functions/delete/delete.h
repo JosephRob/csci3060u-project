@@ -2,6 +2,11 @@
 #define __DELETE_H_INCLUDED__
 #include <string>
 using namespace std;
+/*
+This is the delete class,
+The class has 2 functions, constructor
+and deleteUser function
+*/
 class deleteClass{
 public:
   string deleteUserName, userType;
@@ -9,5 +14,4 @@ public:
   deleteClass();
   bool deleteUser(string userLogName);
 };
-//string deleteUser(string userLogName);
 #endif
