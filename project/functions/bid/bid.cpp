@@ -1,6 +1,12 @@
 #include "bid.h"
 #include <iostream>
 #include <string>
+#include <vector>
+#include <algorithm>
+#include <iterator>
+#include <fstream>
+#include <sstream>
+#include <iomanip>
 
 // HELPER FUNCTION(S)
 bool bidClass::is_number(const string& s){
@@ -14,6 +20,29 @@ bool bidClass::is_number(const string& s){
        sawDot = sawDot || (c == '.');
     }
     return true;
+}
+
+vector<string> bidClass::checkItem(string itemName){
+  string line, word;
+  ifstream inFile ("files/itemList.txt");
+  vector<string> toReturn;
+  while (getline(inFile, line)){
+    stringstream data(line);
+    vector<string> result;
+    while(getline(data,word,' ')){
+      if (word != ""){
+        result.push_back(word);
+      }
+    }
+
+    if (result[0] == itemName){
+      toReturn.push_back(result[0]); //item name
+      toReturn.push_back(result[1]); //item owner
+      toReturn.push_back(result[4]); //current bid
+    }
+  }
+  inFile.close();
+  return toReturn;
 }
 
 /*
@@ -32,50 +61,95 @@ This is the bid function itself.
 bool bidClass::bid(){
   string name, owner;
   bool itemExists;
+  bool sellerExists = false;
   bool validInput;
+  bool cont = false;
+  int itemsSize = 0;
   string input;
-  double value;
-  double itemPrice;
+  double currentBid;
+
   cout << "\n=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=BID=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << endl;
   cout << "Item name to bid: ";
   cin.ignore();
-  getline (cin,name);
+  getline (cin,input);
   while(input != "cancel"){
-    //check item exists
-    itemExists = true;
-
-    if (itemExists){
-      itemName = name;
+    //check item exists, fetch item seller, item current price
+    vector <string> items;
+    items = checkItem(input);
+    itemsSize = items.size()/3;
+    string itemNames[itemsSize];
+    string itemSeller[itemsSize];
+    double itemCurrentBid[itemsSize];
+    if (items.size() != 0){
+      itemName = input;
       //show seller names if there are 2 items with same name different seller
-      //also fetch item price;
-      cout << "\nEnter Seller Username" << endl;
-      cout << "Username: ";
-      cin >> input;
-      if (input == "cancel"){
-        return false;
-      } else {
-        itemOwner = input;
-        cout << "Bid Value (e.g. 9053 for $9053.00, max $999999): $";
+      if (items.size() > 3){ //means there are more than 1 seller with same item name
+        for (int i = 0, index = 0; i < itemsSize*3; i+=3){
+          itemNames[index] = items[i];
+          itemSeller[index] = items[i+1];
+          itemCurrentBid[index] = atof(items[i+2].c_str());
+          index++;
+        }
+        cout << "\nItem Name                 Seller          Value " << endl;
+        for (int i = 0; i < itemsSize; i++){
+          cout << itemNames[i] + " " + itemSeller[i] + " $" << itemCurrentBid[i] << endl;
+        }
+
+      } else { //means there is only 1 seller for that item name
+        currentBid = atof(items[2].c_str());
+        name = items[0];
+        owner = items[1];
+        cout << name + " " + owner + " $" << currentBid << endl;
+      }
+      while(input!="cancel"){
+        cout << "\nEnter Seller Username" << endl;
+        cout << "Username: ";
         cin >> input;
-        while (input != "cancel"){
-          validInput = is_number(input);
-          if (validInput){
-            // cout ;
-            if ( (atof(input.c_str())*1.05 < itemPrice) ){
-              cout << "Bid must be 5 percent" << endl;
+        if (input == "cancel"){
+          return false;
+        } else {
+          if (itemsSize == 1){
+            if (input == name){
+              itemOwner = input;
+              cont = true;
             } else {
-              bidValue = atof(input.c_str());
-              return true;
+              cout << "Owner not found" << endl;
             }
           } else {
-            if(input == "cancel"){
-              return false;
-            } else {
-              cout << "Please input valid value, or cancel to cancel" << endl;
+            for (int i = 0; i < itemsSize; i++){
+              if (itemSeller[i] == input){
+                sellerExists = true;
+                currentBid = itemCurrentBid[i];
+                cont = true;
+                itemOwner = input;
+                itemsSize += 1;
+              }
+            }
+            if (!sellerExists){
+              cout << "Owner not found" << endl;
             }
           }
-          cout << "Bid Value (e.g. 9053 for $9053.00, max $999999): $"
-          getline(cin, input);
+          if (cont){
+            while (input != "cancel"){
+              cout << "\nBid Value (e.g. 9053 for $9053.00, max $999999): $";
+              cin >> input;
+              validInput = is_number(input);
+              if (validInput){
+                if ((atof(input.c_str())*1.05 < currentBid)){
+                  cout << "Bid must be minimum 5 percent higher than current value" << endl;
+                } else {
+                  bidValue = atof(input.c_str());
+                  return true;
+                }
+              } else {
+                if(input == "cancel"){
+                  return false;
+                } else {
+                  cout << "Please input valid value, or cancel to cancel" << endl;
+                }
+              }
+            }
+          }
         }
       }
     } else {
@@ -85,7 +159,7 @@ bool bidClass::bid(){
       cout << "Item not exist, please input item name, or cancel to cancel" << endl;
     }
     cout << "Item name to bid: ";
-    getline (cin,name);
+    getline (cin,input);
   }
 
   //check if it itemOwner exists with the item name to be bid.

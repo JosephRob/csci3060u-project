@@ -63,8 +63,7 @@ vector<string> checkUser(string userInput){
     string line, word;
     ifstream inFile ("files/userList.txt");
     vector<string> toReturn;
-    while (!inFile.eof()){
-        getline(inFile, line);
+    while (getline(inFile, line)){
         stringstream data(line);
         vector<string> result;
         while(getline(data,word,' ')){
@@ -259,6 +258,7 @@ bool userMenu(string userLogName, string userBalance, string userType){
                   // bidVal = val.str();
 
                   appendLine = "04 " + bid.itemName + spaceFiller(25, " ", bid.itemName) + " " + bid.itemOwner + spaceFiller(15, " ", bid.itemOwner) + " " + userLogName + spaceFiller(15, " ", userLogName) + " " + spaceFiller(6, "0", bidVal) + bidVal;
+                  uploadUpdates(appendLine,"files/userDailyUpdate.txt");
                   //cout << appendLine << endl;
                   cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=END=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << endl;
                   appendLine = "";

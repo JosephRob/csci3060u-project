@@ -1,6 +1,7 @@
 #ifndef __BID_H_INCLUDED__
 #define __BID_H_INCLUDED__
 #include <string>
+#include <vector>
 using namespace std;
 /*
 This is the class for bid.
@@ -14,5 +15,6 @@ public:
   bidClass();
   bool bid();
   bool is_number(const string& s);
+  vector<string> checkItem(string itemName);
 };
 #endif
