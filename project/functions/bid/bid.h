@@ -5,7 +5,7 @@ using namespace std;
 /*
 This is the class for bid.
 This class has 2 functions, constructor and bid
-function itself. 
+function itself.
 */
 class bidClass{
 public:
@@ -13,5 +13,6 @@ public:
   double bidValue;
   bidClass();
   bool bid();
+  bool is_number(const string& s);
 };
 #endif

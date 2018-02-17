@@ -15,5 +15,6 @@ public:
   int marketDays;
   advertiseClass();
   bool advertise();
+  bool is_number(const string& s);
 };
 #endif

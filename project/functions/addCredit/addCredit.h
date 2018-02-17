@@ -12,6 +12,8 @@ public:
   double credit;
   string targetUserName;
   addCreditClass();
-  bool addCredit(string userType);
+  bool addCredit(string userType, double maxAddBalanceThisSession);
+  bool is_number(const string& s);
+  bool checkTarget(string userName);
 };
 #endif

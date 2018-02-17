@@ -16,6 +16,7 @@
 
 using namespace std;
 
+double maxAddBalanceThisSession = 1000.0;
 //HELPER FUNCTIONS
 /*
 Space filler function will basically fill spaces.
@@ -30,6 +31,14 @@ string spaceFiller(int totChar, string filler, string word){
         fill += filler;
     }
     return fill;
+}
+
+string settingPrecision(double numb){
+  string presValue;
+  stringstream value;
+  value << fixed << setprecision(2) << numb;
+  presValue = value.str();
+  return presValue;
 }
 
 /*
@@ -144,7 +153,7 @@ bool userMenu(string userLogName, string userBalance, string userType){
     cout << "Type: " + userType + "\tBalance: $" + userBalance << endl;
     showMenu(userType);
     while (keepGoing == true){
-        cout << "What would you like? (Type 'menu' to display menu) ";
+        cout << "\nWhat would you like to do? (Type 'menu' to display menu) ";
         cin >> menuInput;
 
         if (menuInput == "list"){
@@ -157,25 +166,50 @@ bool userMenu(string userLogName, string userBalance, string userType){
             if (userType != "SS"){
                 //call add function
                 addCreditClass add;
-                if (add.addCredit(userType) == true){
-                  //this is just example of output
-                  cout << "Output: add credit process is done" << endl;
+                if (userType != "AA"){
+                  if (maxAddBalanceThisSession > 0.0){
+                    if (add.addCredit(userType, maxAddBalanceThisSession) == true){
+                      //this is just example of output
+                      cout << "Output: add credit process is done" << endl;
 
-                  string bal;
-                  stringstream val;
-                  val << fixed << setprecision(2) << add.credit;
-                  bal = val.str();
+                      string bal = settingPrecision(add.credit);
+                      // stringstream val;
+                      // val << fixed << setprecision(2) << add.credit;
+                      // bal = val.str();
 
-                  if (userType == "AA"){
-                    appendLine = "06 " + add.targetUserName + spaceFiller(15, " ", add.targetUserName) + " " + userType + " " + spaceFiller(9, "0", bal) + bal;
+                      appendLine = "06 " + userLogName + spaceFiller(15, " ", userLogName) + " " + userType + " " + spaceFiller(9, "0", bal) + bal + "\n";
+                      maxAddBalanceThisSession -= add.credit;
+                      uploadUpdates(appendLine,"files/userDailyUpdate.txt");
+                      //cout << appendLine << endl;
+                      cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=END=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << endl;
+                      appendLine = "";
+                    } else {
+                      cout << "Output: process is cancelled" << endl;
+                      cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=END=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << endl;
+                    }
                   } else {
-                    appendLine = "06 " + userLogName + spaceFiller(15, " ", userLogName) + " " + userType + " " + spaceFiller(9, "0", bal) + bal;
+                    cout << "Cannot add more for this session" << endl;
                   }
-                  cout << appendLine << endl;
-                  appendLine = "";
-                } else {
-                  cout << "Output: process is cancelled" << endl;
+
+                } else if (userType == "AA"){
+                  if (add.addCredit(userType, maxAddBalanceThisSession) == true){
+                    //this is just example of output
+                    cout << "Output: add credit process is done" << endl;
+
+                    string bal = settingPrecision(add.credit);
+                    // stringstream val;
+                    // val << fixed << setprecision(2) << add.credit;
+                    // bal = val.str();
+
+                    appendLine = "06 " + add.targetUserName + spaceFiller(15, " ", add.targetUserName) + " " + userType + " " + spaceFiller(9, "0", bal) + bal;
+
+                    cout << appendLine << endl;
+                    appendLine = "";
+                  } else {
+                    cout << "Output: process is cancelled" << endl;
+                  }
                 }
+
                 //append line will then be uploaded to userDailyUpdate.txt
             } else {
                 prompt("Admin or Full-Standard or Buy-Standard","add credit");
@@ -189,16 +223,19 @@ bool userMenu(string userLogName, string userBalance, string userType){
                   //this is just example of output
                   cout << "Output: advertise process is done" << endl;
 
-                  string startValue, marketDays;
-                  stringstream stVal;
-                  stVal << fixed << setprecision(2) << adver.startingValue;
-                  startValue = stVal.str();
-                  stringstream mktDays;
-                  mktDays << adver.marketDays;
-                  mktDays >> marketDays;
+                  string startValue = settingPrecision(adver.startingValue);
+                  string marketDays = settingPrecision(adver.marketDays);
+                  // stringstream stVal;
+                  // stVal << fixed << setprecision(2) << adver.startingValue;
+                  // startValue = stVal.str();
+                  // stringstream mktDays;
+                  // mktDays << adver.marketDays;
+                  // mktDays >> marketDays;
 
                   appendLine = "03 " + adver.itemName + spaceFiller(25, " ", adver.itemName)  + " " + userLogName + spaceFiller(15, " ", userLogName) + " " + spaceFiller(3, "0", marketDays) + marketDays + " " + spaceFiller(6, "0", startValue) + startValue;
-                  cout << appendLine << endl;
+                  uploadUpdates(appendLine,"files/userDailyUpdate.txt");
+                  //cout << appendLine << endl;
+                  cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=END=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << endl;
                   appendLine = "";
                 } else {
                   cout << "Output: process is cancelled" << endl;
@@ -216,13 +253,14 @@ bool userMenu(string userLogName, string userBalance, string userType){
                   //this is just example of output
                   cout << "Output: bid process is done" << endl;
 
-                  string bidVal;
-                  stringstream val;
-                  val << fixed << setprecision(2) << bid.bidValue;
-                  bidVal = val.str();
+                  string bidVal = settingPrecision(bid.bidValue);
+                  // stringstream val;
+                  // val << fixed << setprecision(2) << bid.bidValue;
+                  // bidVal = val.str();
 
                   appendLine = "04 " + bid.itemName + spaceFiller(25, " ", bid.itemName) + " " + bid.itemOwner + spaceFiller(15, " ", bid.itemOwner) + " " + userLogName + spaceFiller(15, " ", userLogName) + " " + spaceFiller(6, "0", bidVal) + bidVal;
-                  cout << appendLine << endl;
+                  //cout << appendLine << endl;
+                  cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=END=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << endl;
                   appendLine = "";
                 } else {
                   cout << "Output: process is cancelled" << endl;
@@ -240,10 +278,10 @@ bool userMenu(string userLogName, string userBalance, string userType){
                   //this is just example of output
                   cout << "Output: create process is done" << endl;
 
-                  string startVal;
-                  stringstream val;
-                  val << fixed << setprecision(2) << create.newBalance;
-                  startVal = val.str();
+                  string startVal = settingPrecision(create.newBalance);
+                  // stringstream val;
+                  // val << fixed << setprecision(2) << create.newBalance;
+                  // startVal = val.str();
 
                   appendLine = "01 " + create.newUserName + spaceFiller(15, " ", create.newUserName) + " " + create.newUserType + " " + spaceFiller(9, "0", startVal) + startVal;
                   cout << appendLine << endl;
@@ -264,10 +302,10 @@ bool userMenu(string userLogName, string userBalance, string userType){
                   //this is just example of output
                   cout << "Output: delete process is done" << endl;
 
-                  string curBalance;
-                  stringstream val;
-                  val << fixed << setprecision(2) << deleteC.userBalance;
-                  curBalance = val.str();
+                  string curBalance = settingPrecision(deleteC.userBalance);
+                  // stringstream val;
+                  // val << fixed << setprecision(2) << deleteC.userBalance;
+                  // curBalance = val.str();
 
                   appendLine = "02 " + deleteC.deleteUserName + spaceFiller(15, " ", deleteC.deleteUserName) + " " + deleteC.userType + " " + spaceFiller(9, "0", curBalance) + curBalance;
                   cout << appendLine << endl;
@@ -288,10 +326,10 @@ bool userMenu(string userLogName, string userBalance, string userType){
                   //this is just example of output
                   cout << "Output: refund process is done" << endl;
 
-                  string refundCredit;
-                  stringstream val;
-                  val << fixed << setprecision(2) << refund.credit;
-                  refundCredit = val.str();
+                  string refundCredit = settingPrecision(refund.credit);
+                  // stringstream val;
+                  // val << fixed << setprecision(2) << refund.credit;
+                  // refundCredit = val.str();
 
                   appendLine = "05 " + refund.buyerName + spaceFiller(15, " ", refund.buyerName) + " " + refund.sellerName + spaceFiller(15, " ", refund.sellerName) + " " + spaceFiller(9, "0", refundCredit) + refundCredit;
                   cout << appendLine << endl;
