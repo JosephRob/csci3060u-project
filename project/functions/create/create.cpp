@@ -1,6 +1,11 @@
 #include "create.h"
 #include <iostream>
 #include <string>
+#include <locale>
+#include <vector>
+#include <fstream>
+#include <sstream>
+
 
 /*
 This is the constructor
@@ -12,42 +17,171 @@ createClass::createClass(){
   newBalance = 0.0;
 }
 
+bool createClass::contains(string toBeChecked, char checker){
+  for (int i = 0; i < toBeChecked.length(); i++){
+    if (toBeChecked[i] == checker){
+      return true;
+    }
+  }
+  return false;
+}
+
+bool createClass::isFuncName(string toBeChecked){
+  locale loc;
+  string userFuncs[8] = {"advertise", "bid", "create", "delete", "refund", "showmenu", "addcredit", "cancel"};
+  string lowerCased;
+  for (int i = 0; i < toBeChecked.length(); i++){
+    lowerCased += tolower(toBeChecked[i], loc);
+  }
+  cout << lowerCased << endl;
+
+  for (int i = 0; i < 8; i++){
+    if (lowerCased == userFuncs[i]){
+      return true;
+    }
+  }
+
+  return false;
+}
+
+bool createClass::isNumber(const string& s){
+    if (s.empty())
+       return false;
+
+    bool sawDot = false;
+    for (char c : s ){
+       if (!(isdigit(c) || (c == '.' && !sawDot)))
+          return false;
+       sawDot = sawDot || (c == '.');
+    }
+    return true;
+}
+
+bool createClass::checkUser(string userName){
+    string line, word;
+    ifstream inFile ("files/userList.txt");
+    while (getline(inFile, line)){
+        stringstream data(line);
+        vector<string> theLine;
+        while(getline(data,word,' ')){
+            if (word != ""){
+                theLine.push_back(word);
+            }
+        }
+        if (theLine[0] == userName){
+            inFile.close();
+            return true;
+        }
+    }
+    inFile.close();
+    return false;
+}
+
+
 /*
 This is the create function,
 current userLogName, so admin,
 cannot create another admin with the same name as his.
 */
 bool createClass::create(string userLogName){
-  string username, usertype, balance;
-  double balInDb;
-  cout << "Username (15 characters include spaces): ";
+  string input;
+  bool validUsername;
+  bool keepCont = false;
+  cout << "\n=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=CREATE+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << endl;
+  cout << "Username (15 characters, no space): ";
   cin.ignore();
-  getline(cin, username);
-  //check if username between 15 characters, but not now
-  newUserName = username;
+  while(input != "cancel"){
+    validUsername = true;
+    getline(cin,input);
+    //check if username between 15 characters
+    if (input == "cancel"){
+      return false;
+    } else {
+      if (!checkUser(input)){
+        if ((0 < input.length()) && (input.length() <= 15)){
+          for (int i = 0 ; i < input.length(); i++){
+            if (contains(input, ' ')){
+              validUsername = false;
+            }
+          }
+          if (validUsername && (!isFuncName(input))){
+            newUserName = input;
+            keepCont = true;
+          } else {
+            cout << "Name is invalid" << endl;
+            cout << "|" + input + "|" << endl;
+            cout << "Please enter new username, max 15 characters, no space, or cancel to cancel" << endl;
+            cout << "Username: ";
+          }
+        } else {
+          if (input.length() == 0){
+            cout << "Name cannot be empty" << endl;
+            cout << "Please enter new username, max 15 characters, no space, or cancel to cancel" << endl;
+            cout << "Username: ";
+          } else {
+            cout << "Name longer than 15 characters" << endl;
+            cout << "Please enter new username, max 15 characters, no space, or cancel to cancel" << endl;
+            cout << "Username: ";
+          }
+        }
+        if (keepCont){
+          cout << "User Type (AA = Admin, FS = Full-Standard, BS = Buy-Standard, SS = Sell-Standard)\n> ";
+          while(input != "cancel"){
+            cin >> input;
+            if (input == "cancel"){
+              return false;
+            } else {
+              if ((input == "AA") || (input == "FS") || (input == "BS") || (input == "SS")){
+                keepCont = true;
+                newUserType = input;
+              } else {
+                keepCont = false;
+                cout << "User type not valid" << endl;
+                cout << "Please enter user Type (AA = Admin, FS = Full-Standard, BS = Buy-Standard, SS = Sell-Standard)\n> ";
+              }
+            }
+            if (keepCont){
+              if (input == "AA"){
+                newBalance = 999999.99;
+                return true;
+              } else if (input == "SS"){
+                newBalance = 000000.00;
+                return true;
+              } else {
+                cout << "Insert balance (e.g. 123.41 for $123.41, max $999999.99): $";
+                while (input != "cancel"){
+                  cin >> input;
+                  if (isNumber(input)){
+                    if ((0.0 < atof(input.c_str())) && (atof(input.c_str()) < 1000000.00)){
+                      newBalance = atof(input.c_str());
+                      return true;
+                    } else {
+                      cout << "Balance out of range" << endl;
+                    }
+                  } else {
+                    if (input == "cancel"){
+                      return false;
+                    } else {
+                      cout << "Value not valid" << endl;
+                    }
+                  }
+                  cout << "Insert balance (e.g. 123.41 for $123.41, max $999999.99): $";
+                }
+              }
 
-  cout << "User Type (AA = Admin, FS = Full-Standard, BS = Buy-Standard, SS = Sell-Standard)\n> ";
-  cin >> usertype;
-  newUserType = usertype;
+            }
+          }
+        }
+      } else {
+        cout << "User exists! Please enter new username (15 characters, no space), or cancel to cancel" << endl;
+        cout << "Username (15 characters, no space): ";
+      }
 
-  if (usertype == "AA"){
-      balance = "999999.99";
-  } else if (usertype == "SS") {
-      balance = "000000.00";
-  } else {
-      cout << "Insert balance (e.g. 123.41 for $123.41): $";
-      cin >> balance;
-      //check if balance not negative, and not more than 999999.99
+
+    }
   }
-  balInDb = atof(balance.c_str());
-  newBalance = balInDb;
 
-  //if process of create user successfull,
-  //will return true
-
-  //if cancel is entered anywhere when asking for username, usertype, balance,
-  //will return a string false and stop creating process
-
-  //but for now we wil return true
-  return true;
+  //balInDb = atof(balance.c_str());
+  //newBalance = balInDb;
+  return false;
 }

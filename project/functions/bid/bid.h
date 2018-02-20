@@ -13,8 +13,8 @@ public:
   string itemName, itemOwner;
   double bidValue;
   bidClass();
-  bool bid();
-  bool is_number(const string& s);
+  bool bid(string userType);
+  bool isNumber(const string& s);
   vector<string> checkItem(string itemName);
 };
 #endif

@@ -12,5 +12,9 @@ public:
   double newBalance;
   createClass();
   bool create(string userLogName);
+  bool contains(string toBeChecked, char checker);
+  bool isFuncName(string toBeChecked);
+  bool isNumber(const string& s);
+  bool checkUser(string userName);
 };
 #endif

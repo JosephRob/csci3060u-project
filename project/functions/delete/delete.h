@@ -13,5 +13,6 @@ public:
   double userBalance;
   deleteClass();
   bool deleteUser(string userLogName);
+  bool checkUser(string userName);
 };
 #endif

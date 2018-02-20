@@ -10,7 +10,7 @@
 #include <stdlib.h>
 using namespace std;
 // HELPER FUNCTION(S)
-bool addCreditClass::is_number(const string& s){
+bool addCreditClass::isNumber(const string& s){
     if (s.empty())
        return false;
 
@@ -25,7 +25,7 @@ bool addCreditClass::is_number(const string& s){
 
 bool addCreditClass::checkTarget(string userName){
     string line, word;
-    ifstream inFile ("../../files/userList.txt");
+    ifstream inFile ("files/userList.txt");
     while (getline(inFile, line)){
         stringstream data(line);
         vector<string> theLine;
@@ -79,7 +79,7 @@ bool addCreditClass::addCredit(string userType, double maxAddBalanceThisSession)
 
   cin.ignore();
   getline(cin, input);
-  validValue = is_number(input);
+  validValue = isNumber(input);
   while(input != "cancel"){
     if (validValue) {
       addBalance = atof(input.c_str());

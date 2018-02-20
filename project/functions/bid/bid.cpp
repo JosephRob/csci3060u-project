@@ -9,7 +9,7 @@
 #include <iomanip>
 
 // HELPER FUNCTION(S)
-bool bidClass::is_number(const string& s){
+bool bidClass::isNumber(const string& s){
     if (s.empty())
        return false;
 
@@ -58,7 +58,7 @@ bidClass::bidClass(){
 /*
 This is the bid function itself.
 */
-bool bidClass::bid(){
+bool bidClass::bid(string userType){
   string name, owner;
   bool itemExists;
   bool sellerExists = false;
@@ -72,6 +72,11 @@ bool bidClass::bid(){
   cout << "Item name to bid: ";
   cin.ignore();
   getline (cin,input);
+  for (int i = 0; i < input.length(); i++){
+    if (input[i] == ' '){
+      input[i] = '_';
+    }
+  }
   while(input != "cancel"){
     //check item exists, fetch item seller, item current price
     vector <string> items;
@@ -92,16 +97,28 @@ bool bidClass::bid(){
         }
         cout << "\nItem Name                 Seller          Value " << endl;
         for (int i = 0; i < itemsSize; i++){
-          cout << itemNames[i] + " " + itemSeller[i] + " $" << itemCurrentBid[i] << endl;
+          string alteredItemName = itemNames[i];
+          for (int x = 0; x < alteredItemName.length(); x++){
+            if (alteredItemName[x] == '_'){
+              alteredItemName[x] = ' ';
+            }
+          }
+          cout << alteredItemName + " " + itemSeller[i] + " $" << itemCurrentBid[i] << endl;
         }
 
       } else { //means there is only 1 seller for that item name
         currentBid = atof(items[2].c_str());
         name = items[0];
         owner = items[1];
-        cout << name + " " + owner + " $" << currentBid << endl;
+        string alteredItemName = name;
+        for (int x = 0; x < alteredItemName.length(); x++){
+          if (alteredItemName[x] == '_'){
+            alteredItemName[x] = ' ';
+          }
+        }
+        cout << alteredItemName + " " + owner + " $" << currentBid << endl;
       }
-      while(input!="cancel"){
+      while(input != "cancel"){
         cout << "\nEnter Seller Username" << endl;
         cout << "Username: ";
         cin >> input;
@@ -109,7 +126,7 @@ bool bidClass::bid(){
           return false;
         } else {
           if (itemsSize == 1){
-            if (input == name){
+            if (input == owner){
               itemOwner = input;
               cont = true;
             } else {
@@ -133,13 +150,18 @@ bool bidClass::bid(){
             while (input != "cancel"){
               cout << "\nBid Value (e.g. 9053 for $9053.00, max $999999): $";
               cin >> input;
-              validInput = is_number(input);
+              validInput = isNumber(input);
               if (validInput){
-                if ((atof(input.c_str())*1.05 < currentBid)){
-                  cout << "Bid must be minimum 5 percent higher than current value" << endl;
-                } else {
+                if (userType == "AA"){
                   bidValue = atof(input.c_str());
                   return true;
+                } else {
+                  if ((atof(input.c_str()) < currentBid*1.05)){
+                    cout << "Bid must be minimum 5 percent higher than current value" << endl;
+                  } else {
+                    bidValue = atof(input.c_str());
+                    return true;
+                  }
                 }
               } else {
                 if(input == "cancel"){
