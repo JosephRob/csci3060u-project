@@ -12,5 +12,8 @@ public:
   double credit;
   refundClass();
   bool refund();
+  bool checkUser(string userName);
+  bool isNumber(const string& s);
+  double getBalance(string username);
 };
 #endif

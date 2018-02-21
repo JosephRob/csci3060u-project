@@ -79,9 +79,5 @@ bool deleteClass::deleteUser(string userLogName){
     }
   }
 
-  //check if userToDel is not user itself and check if user exist
-  //meanwhile checking on userToDel, this program will also record the information of the person
-  //the user type and balance.
-
   return false;
 }

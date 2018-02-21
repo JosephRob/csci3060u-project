@@ -312,7 +312,9 @@ bool userMenu(string userLogName, string userBalance, string userType){
                   string refundCredit = settingPrecision(refund.credit);
 
                   appendLine = "05 " + refund.buyerName + spaceFiller(15, " ", refund.buyerName) + " " + refund.sellerName + spaceFiller(15, " ", refund.sellerName) + " " + spaceFiller(9, "0", refundCredit) + refundCredit;
-                  cout << appendLine << endl;
+                  uploadUpdates(appendLine,"files/userDailyUpdate.txt");
+                  //cout << appendLine << endl;
+                  cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=END=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << endl;
                   appendLine = "";
                 } else {
                   cout << "Output: process is cancelled" << endl;
