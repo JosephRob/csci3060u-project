@@ -1,6 +1,6 @@
-fsaccount       FS 000099.99
-ssaccount       SS 001234.56
-bsaccount       BS 001234.56
+fsaccount       FS 000100.00
+ssaccount       SS 000100.00
+bsaccount       BS 000100.00
 admin           AA 999999.99
-newUser123      FS 009053.17
+newUser123      FS 000100.00
 END

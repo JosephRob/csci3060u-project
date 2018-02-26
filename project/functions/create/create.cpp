@@ -28,14 +28,15 @@ bool createClass::contains(string toBeChecked, char checker){
 
 bool createClass::isFuncName(string toBeChecked){
   locale loc;
-  string userFuncs[8] = {"advertise", "bid", "create", "delete", "refund", "showmenu", "addcredit", "cancel"};
+  //error here forgot to put add, then forgot to change array size.
+  string userFuncs[9] = {"advertise", "bid", "create", "delete", "refund", "showmenu", "addcredit", "cancel", "add"};
   string lowerCased;
   for (int i = 0; i < toBeChecked.length(); i++){
     lowerCased += tolower(toBeChecked[i], loc);
   }
   cout << lowerCased << endl;
-
-  for (int i = 0; i < 8; i++){
+  //forgot to change here again
+  for (int i = 0; i < 9; i++){
     if (lowerCased == userFuncs[i]){
       return true;
     }
@@ -108,18 +109,17 @@ bool createClass::create(string userLogName){
             newUserName = input;
             keepCont = true;
           } else {
-            cout << "Name is invalid" << endl;
-            cout << "|" + input + "|" << endl;
+            cout << "\nName is invalid" << endl;
             cout << "Please enter new username, max 15 characters, no space, or cancel to cancel" << endl;
             cout << "Username: ";
           }
         } else {
           if (input.length() == 0){
-            cout << "Name cannot be empty" << endl;
+            cout << "\nName cannot be empty" << endl;
             cout << "Please enter new username, max 15 characters, no space, or cancel to cancel" << endl;
             cout << "Username: ";
           } else {
-            cout << "Name longer than 15 characters" << endl;
+            cout << "\nName longer than 15 characters" << endl;
             cout << "Please enter new username, max 15 characters, no space, or cancel to cancel" << endl;
             cout << "Username: ";
           }
@@ -136,7 +136,7 @@ bool createClass::create(string userLogName){
                 newUserType = input;
               } else {
                 keepCont = false;
-                cout << "User type not valid" << endl;
+                cout << "\nUser type not valid" << endl;
                 cout << "Please enter user Type (AA = Admin, FS = Full-Standard, BS = Buy-Standard, SS = Sell-Standard)\n> ";
               }
             }
@@ -148,7 +148,7 @@ bool createClass::create(string userLogName){
                 newBalance = 000000.00;
                 return true;
               } else {
-                cout << "Insert balance (e.g. 123.41 for $123.41, max $999999.99): $";
+                cout << "\nInsert balance (e.g. 123.41 for $123.41, max $999999.99): $";
                 while (input != "cancel"){
                   cin >> input;
                   if (isNumber(input)){
@@ -156,16 +156,16 @@ bool createClass::create(string userLogName){
                       newBalance = atof(input.c_str());
                       return true;
                     } else {
-                      cout << "Balance out of range" << endl;
+                      cout << "\nBalance out of range" << endl;
                     }
                   } else {
                     if (input == "cancel"){
                       return false;
                     } else {
-                      cout << "Value not valid" << endl;
+                      cout << "\nValue not valid" << endl;
                     }
                   }
-                  cout << "Insert balance (e.g. 123.41 for $123.41, max $999999.99): $";
+                  cout << "\nInsert balance (e.g. 123.41 for $123.41, max $999999.99): $";
                 }
               }
 
@@ -173,7 +173,7 @@ bool createClass::create(string userLogName){
           }
         }
       } else {
-        cout << "User exists! Please enter new username (15 characters, no space), or cancel to cancel" << endl;
+        cout << "\nUser exists! Please enter new username (15 characters, no space), or cancel to cancel" << endl;
         cout << "Username (15 characters, no space): ";
       }
 
@@ -181,7 +181,5 @@ bool createClass::create(string userLogName){
     }
   }
 
-  //balInDb = atof(balance.c_str());
-  //newBalance = balInDb;
   return false;
 }
