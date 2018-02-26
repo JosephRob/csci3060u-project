@@ -82,18 +82,21 @@ bool refundClass::refund(){
   cout << "Username: ";
   while(input != "cancel"){
     cin >> input;
+    cout << endl;
     if (checkUser(input)){
       buyerName = input;
       cout << "Enter SELLER username" << endl;
       cout << "Username: ";
       while(input != "cancel"){
         cin >> input;
+        cout << endl;
         if (checkUser(input)){
           sellerName = input;
           cout << "Enter credit to be returned" << endl;
           cout << "Credit: $";
           while (input != "cancel"){
             cin >> input;
+            cout << endl;
             if (isNumber(input)){
               if ((0.0 < atof(input.c_str())) && (atof(input.c_str()) < 1000000.0)){
                 //check if balance of buyer is not more than max after the refund

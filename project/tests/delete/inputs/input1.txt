@@ -1,9 +1,9 @@
 login
 admin
-add
--10
-500
+delete
+admin2
+admin
 notexistacc
 fsaccount
+yes
 logout
-EOF

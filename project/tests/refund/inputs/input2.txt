@@ -1,6 +1,12 @@
 login
 admin
 refund
-cancel
+bsaccount
+fsaccount
+200
+refund
+bsaccount
+fsaccount
+50
 logout
 EOF

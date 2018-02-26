@@ -30,7 +30,11 @@ bool deleteClass::checkUser(string userName){
             userType = theLine[1];
             userBalance = atof(theLine[2].c_str());
             inFile.close();
-            return true;
+            if (theLine[1] == "AA"){ //cannot delete admin
+              return false;
+            } else {
+              return true;
+            }
         }
     }
     inFile.close();
@@ -50,6 +54,7 @@ bool deleteClass::deleteUser(string userLogName){
   cout << "Username: ";
   while(input != "cancel"){
     cin >> input;
+    cout << endl;
     if (input == "cancel"){
       return false;
     } else {
@@ -57,6 +62,7 @@ bool deleteClass::deleteUser(string userLogName){
         cout << "Are you sure you want to delete " + input + "? (yes/no):\n> ";
         while(confirmation != "yes"){
           cin >> confirmation;
+          cout << endl;
           if (confirmation == "yes"){
             deleteUserName = input;
             //change the value of userType deleted to **,
@@ -72,7 +78,7 @@ bool deleteClass::deleteUser(string userLogName){
           }
         }
       } else {
-        cout << "User not exists" << endl;
+        cout << "Cannot delete user " + input << endl;
         cout << "Enter username to be deleted or cancel to cancel" << endl;
         cout << "Username: ";
       }

@@ -79,8 +79,10 @@ bool addCreditClass::addCredit(string userType, double maxAddBalanceThisSession)
 
   cin.ignore();
   getline(cin, input);
-  validValue = isNumber(input);
+  cout << endl;
   while(input != "cancel"){
+    //check if valid should be under the while loop not before.
+    validValue = isNumber(input);
     if (validValue) {
       addBalance = atof(input.c_str());
       if ((maxAddBalanceThisSession - addBalance >= 0.0) && (addBalance > 0.0)){
@@ -90,6 +92,7 @@ bool addCreditClass::addCredit(string userType, double maxAddBalanceThisSession)
           cout << "Input target username" << endl;
           cout << "Username: ";
           cin >> target;
+          cout << endl;
           while(target != "cancel"){
             if (checkTarget(target)){
               targetUserName = target;
@@ -98,6 +101,7 @@ bool addCreditClass::addCredit(string userType, double maxAddBalanceThisSession)
               cout << "User does not exist, please re-input user, or cancel to cancel" << endl;
               cout << "Username: ";
               cin >> target;
+              cout << endl;
             }
           }
           return false;
