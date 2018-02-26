@@ -1,0 +1,10 @@
+login
+fsaccount
+bid
+Macbook Pro
+ssaccount
+1dolla
+20.3.3
+1000
+205
+logout

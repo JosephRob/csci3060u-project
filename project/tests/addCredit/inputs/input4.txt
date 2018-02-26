@@ -1,0 +1,6 @@
+login
+admin
+add
+500
+ssaccount
+logout

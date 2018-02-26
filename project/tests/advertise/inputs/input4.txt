@@ -1,0 +1,10 @@
+login
+ssaccount
+advertise
+Macbook Pro
+15.99
+-3
+-10
+1000
+7
+logout

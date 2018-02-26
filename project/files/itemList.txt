@@ -1,10 +1,7 @@
-Les_Paul_Guitar           clyve           admin           007 100000
-Les_Paul_Guitar2          wdj             nestea          002 900000
-Les_Paul_Guitar34         clyve           asdas           007 111000
-Les_Paul_Guitar5          wdj             dssdsssddd      002 900200
-Laptop                    addddd          dasdassad       003 000012
+Les_Paul_Guitar           fsaccount       admin           007 100000
+Laptop                    admin           dasdassad       003 000012
 Laptop                    admin           dasdassad       003 000112
-Macbook_Pro               admin           notclyvewidjaya 003 200.00
-Macbook_Pro               notadmin        notclyvewidjaya 003 200.00
+Macbook_Pro               fsaccount       notclyvewidjaya 003 200.00
+Macbook_Pro               ssaccount       notclyvewidjaya 003 200.00
 Test_Item_List_Long_name  admin           notclyvewidjaya 003 200.00
 END

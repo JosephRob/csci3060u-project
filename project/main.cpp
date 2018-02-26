@@ -188,7 +188,7 @@ bool userMenu(string userLogName, string userBalance, string userType){
                   }
 
                 } else if (userType == "AA"){
-                  if (add.addCredit(userType, maxAddBalanceThisSession) == true){
+                  if (add.addCredit(userType, 1000000) == true){
                     //this is just example of output
                     cout << "Output: add credit process is done" << endl;
 

@@ -1,0 +1,6 @@
+bid
+login
+admin
+bid
+cancel
+logout

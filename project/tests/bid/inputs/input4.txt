@@ -1,0 +1,7 @@
+login
+admin
+bid
+Macbook Pro
+ssaccount
+201
+logout
