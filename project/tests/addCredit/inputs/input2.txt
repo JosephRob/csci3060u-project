@@ -1,0 +1,15 @@
+login
+fsaccount
+add
+500
+add
+-10
+add
+2000
+add
+500
+add
+500
+cancel
+logout
+EOF

@@ -1,0 +1,5 @@
+login
+bsaccount
+advertise
+logout
+EOF

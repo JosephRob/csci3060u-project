@@ -1,0 +1,5 @@
+login
+fsaccount
+create
+logout
+EOF

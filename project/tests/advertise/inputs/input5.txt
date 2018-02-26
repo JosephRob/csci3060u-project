@@ -1,0 +1,13 @@
+cancel
+login
+admin
+advertise
+A long item name more than 25
+Macbook Pro
+-15
+9.9.9
+9.99
+-100
+7
+logout
+EOF

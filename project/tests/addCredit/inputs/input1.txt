@@ -1,0 +1,5 @@
+login
+ssaccount
+add
+logout
+EOF

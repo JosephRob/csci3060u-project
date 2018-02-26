@@ -1,0 +1,8 @@
+login
+admin
+add
+500
+notexistacc
+fsaccount
+logout
+EOF

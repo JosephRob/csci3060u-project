@@ -188,7 +188,7 @@ bool userMenu(string userLogName, string userBalance, string userType){
                   }
 
                 } else if (userType == "AA"){
-                  if (add.addCredit(userType, maxAddBalanceThisSession) == true){
+                  if (add.addCredit(userType, 1000000) == true){
                     //this is just example of output
                     cout << "Output: add credit process is done" << endl;
 
@@ -217,7 +217,11 @@ bool userMenu(string userLogName, string userBalance, string userType){
                   cout << "Output: advertise process is done" << endl;
 
                   string startValue = settingPrecision(adver.startingValue);
-                  string marketDays = settingPrecision(adver.marketDays);
+
+                  stringstream ss;
+                  ss << adver.marketDays;
+                  string marketDays;
+                  ss >> marketDays;
 
                   appendLine = "03 " + adver.itemName + spaceFiller(25, " ", adver.itemName)  + " " + userLogName + spaceFiller(15, " ", userLogName) + " " + spaceFiller(3, "0", marketDays) + marketDays + " " + spaceFiller(6, "0", startValue) + startValue;
                   uploadUpdates(appendLine,"files/userDailyUpdate.txt");
@@ -241,7 +245,6 @@ bool userMenu(string userLogName, string userBalance, string userType){
                   cout << "Output: bid process is done" << endl;
 
                   string bidVal = settingPrecision(bid.bidValue);
-
                   appendLine = "04 " + bid.itemName + spaceFiller(25, " ", bid.itemName) + " " + bid.itemOwner + spaceFiller(15, " ", bid.itemOwner) + " " + userLogName + spaceFiller(15, " ", userLogName) + " " + spaceFiller(6, "0", bidVal) + bidVal;
                   uploadUpdates(appendLine,"files/userDailyUpdate.txt");
                   //cout << appendLine << endl;

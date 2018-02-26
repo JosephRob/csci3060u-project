@@ -1,0 +1,27 @@
+Enter command 'login' to login, or 'cancel' to cancel
+> Username: 
+Welcome to the auction, fsaccount!
+Type: FS	Balance: $99.99
+
+Menus: 
+add = Add balance
+advertise = Advertise an item
+bid = Bid on an item
+list = List all items available
+
+logout = Log out
+
+What would you like to do? (Type 'menu' to display menu) 
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=BID=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+Item name to bid: 
+Item Name                 Seller          Value 
+Macbook Pro fsaccount $200
+Macbook Pro ssaccount $200
+
+Enter Seller Username
+Username: 
+Bid Value (e.g. 53 for $53.00, max item price is $999.99): $Please input valid value, or cancel to cancel
+
+Bid Value (e.g. 53 for $53.00, max item price is $999.99): $Please input valid value, or cancel to cancel
+
+Bid Value (e.g. 53 for $53.00, max item price is $999.99): $Output: bid process is done

@@ -1,0 +1,7 @@
+login
+admin
+create
+fsaccount
+cancel
+logout
+EOF

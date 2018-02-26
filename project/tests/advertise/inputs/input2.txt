@@ -1,0 +1,7 @@
+login
+admin
+advertise
+Macbook Pro
+cancel
+logout
+EOF

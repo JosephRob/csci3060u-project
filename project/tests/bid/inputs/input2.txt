@@ -1,0 +1,11 @@
+login
+bsaccount
+bid
+a non exist item
+an item with looong name
+Macbook Pro
+nottheseller
+fsaccount
+cancel
+logout
+EOF

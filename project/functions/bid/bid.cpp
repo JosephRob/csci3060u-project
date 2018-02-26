@@ -148,7 +148,7 @@ bool bidClass::bid(string userType){
           }
           if (cont){
             while (input != "cancel"){
-              cout << "\nBid Value (e.g. 9053 for $9053.00, max $999999): $";
+              cout << "\nBid Value (e.g. 53 for $53.00, max item price is $999.99): $";
               cin >> input;
               validInput = isNumber(input);
               if (validInput){
