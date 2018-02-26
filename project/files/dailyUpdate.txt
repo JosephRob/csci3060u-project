@@ -43,3 +43,11 @@
 10 admin           AA 999999.99
 01 fsaccount2      FS 009053.17
 00 admin           AA 999999.99
+10 admin           AA 999999.99
+04 Macbook_Pro               ssaccount       admin           200.00
+00 admin           AA 999999.99
+10 admin           AA 999999.99
+04 Macbook_Pro               ssaccount       admin           999.01
+00 admin           AA 999999.99
+10 fsaccount       FS 000100.00
+00 fsaccount       FS 000100.00

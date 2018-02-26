@@ -161,8 +161,14 @@ bool bidClass::bid(string userType){
                       cout << "Maximum item price is $999.99" << endl;
                       cout << "Enter new value, or cancel to cancel" << endl;
                     } else {
-                      bidValue = atof(input.c_str());
-                      return true;
+                      //forgot to add so that admin cannot bid lower than the current bid.
+                      if (atof(input.c_str()) <= currentBid){
+                        cout << "Cannot bid lower or same to current bid" << endl;
+                        cout << "Enter new value, or cancel to cancel" << endl;
+                      } else {
+                        bidValue = atof(input.c_str());
+                        return true;
+                      }
                     }
                   } else {
                     if ((atof(input.c_str()) < currentBid*1.05)){
