@@ -4,3 +4,4 @@ admin
 bid
 cancel
 logout
+EOF

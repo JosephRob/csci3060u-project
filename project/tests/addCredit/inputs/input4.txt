@@ -4,3 +4,4 @@ add
 500
 ssaccount
 logout
+EOF

@@ -8,3 +8,4 @@ Macbook Pro
 15.99
 cancel
 logout
+EOF

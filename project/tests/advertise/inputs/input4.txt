@@ -8,3 +8,4 @@ Macbook Pro
 1000
 7
 logout
+EOF

@@ -1,10 +1,11 @@
 login
 fsaccount
 bid
-Macbook Pro
-ssaccount
+Laptop
+admin
 1dolla
 20.3.3
 1000
-205
+200
 logout
+EOF

@@ -8,3 +8,4 @@ nottheseller
 fsaccount
 cancel
 logout
+EOF

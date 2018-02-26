@@ -3,3 +3,4 @@ aNotExistUsr
 login
 admin
 logout
+EOF

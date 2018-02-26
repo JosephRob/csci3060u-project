@@ -1,3 +1,4 @@
+cancel
 login
 admin
 advertise
@@ -9,3 +10,4 @@ Macbook Pro
 -100
 7
 logout
+EOF

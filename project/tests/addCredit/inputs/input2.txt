@@ -10,4 +10,6 @@ add
 500
 add
 500
+cancel
 logout
+EOF

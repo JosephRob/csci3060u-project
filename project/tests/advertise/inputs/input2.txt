@@ -4,3 +4,4 @@ advertise
 Macbook Pro
 cancel
 logout
+EOF

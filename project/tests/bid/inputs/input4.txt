@@ -5,3 +5,4 @@ Macbook Pro
 ssaccount
 201
 logout
+EOF

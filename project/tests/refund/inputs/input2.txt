@@ -1,3 +1,6 @@
 login
 admin
 refund
+cancel
+logout
+EOF
