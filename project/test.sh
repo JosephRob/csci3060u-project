@@ -1,4 +1,5 @@
 #./theProgram < asdf.txt > qwerty.txt
+make
 for file in ./tests/*
 do
     if [[ -d $file ]]; then
@@ -6,7 +7,9 @@ do
         for test in $file/inputs/*
         do
             echo $test
-            ./theProgram < $test #> asdf.txt
+            ./theProgram < $test > asdf.txt
         done
     fi
 done
+rm asdf.txt
+make clean

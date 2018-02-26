@@ -1,8 +1,10 @@
 login
 admin
+create
 fsaccount 2
-advertise
 add
+advertise
+fsaccount
 aloooooooongname
 
 fsaccount2

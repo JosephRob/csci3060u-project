@@ -1,0 +1,10 @@
+login 
+admin
+refund
+bsaccount
+fsaccount
+-1
+lots
+250
+logout
+EOF
