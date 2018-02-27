@@ -4,5 +4,6 @@ bid
 Macbook Pro
 ssaccount
 201
+999.99
 logout
 EOF

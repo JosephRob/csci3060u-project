@@ -3,8 +3,10 @@ admin
 refund
 bsaccount
 fsaccount
--1
-lots
+200
+refund
+bsaccount
+fsaccount
 50
 logout
 EOF

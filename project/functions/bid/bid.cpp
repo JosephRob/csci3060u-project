@@ -72,6 +72,7 @@ bool bidClass::bid(string userType){
   cout << "Item name to bid: ";
   cin.ignore();
   getline (cin,input);
+  cout << endl;
   for (int i = 0; i < input.length(); i++){
     if (input[i] == ' '){
       input[i] = '_';
@@ -122,6 +123,7 @@ bool bidClass::bid(string userType){
         cout << "\nEnter Seller Username" << endl;
         cout << "Username: ";
         cin >> input;
+        cout << endl;
         if (input == "cancel"){
           return false;
         } else {
@@ -152,8 +154,9 @@ bool bidClass::bid(string userType){
               return false;
             } else {
               while (input != "cancel"){
-                cout << "\nBid Value (e.g. 53 for $53.00, max item price is $999.99): $";
+                cout << "Bid Value (e.g. 53 for $53.00, max item price is $999.99): $";
                 cin >> input;
+                cout << endl;
                 validInput = isNumber(input);
                 if (validInput){
                   if (userType == "AA"){
@@ -161,8 +164,14 @@ bool bidClass::bid(string userType){
                       cout << "Maximum item price is $999.99" << endl;
                       cout << "Enter new value, or cancel to cancel" << endl;
                     } else {
-                      bidValue = atof(input.c_str());
-                      return true;
+                      //forgot to add so that admin cannot bid lower than the current bid.
+                      if (atof(input.c_str()) <= currentBid){
+                        cout << "Cannot bid lower or same to current bid" << endl;
+                        cout << "Enter new value, or cancel to cancel" << endl;
+                      } else {
+                        bidValue = atof(input.c_str());
+                        return true;
+                      }
                     }
                   } else {
                     if ((atof(input.c_str()) < currentBid*1.05)){
@@ -197,6 +206,7 @@ bool bidClass::bid(string userType){
     }
     cout << "Item name to bid: ";
     getline (cin,input);
+    cout << endl;
   }
 
   //check if it itemOwner exists with the item name to be bid.

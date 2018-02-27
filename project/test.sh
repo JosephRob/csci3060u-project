@@ -18,4 +18,9 @@ do
         done
     fi
 done
+<<<<<<< HEAD
 make clean
+=======
+rm asdf.txt
+make clean
+>>>>>>> 3c14cf2a9e65f12a1d33a691ca5408f794194f8b

@@ -52,6 +52,7 @@ bool advertiseClass::advertise(){
     while(input != "cancel"){
       cout << "Starting Price (e.g. 15.31 for $15.31, max $999.99): $";
       cin >> input;
+      cout << endl;
       validValue = is_number(input);
       if (validValue){
         if ((0.0 <= atof(input.c_str())) && (atof(input.c_str()) <= 999.99)){
@@ -59,6 +60,7 @@ bool advertiseClass::advertise(){
           while(input!="cancel"){
             cout << "Days (e.g. 7 for 7 days, max 999 days): ";
             cin >> input;
+            cout << endl;
             validValue = is_number(input);
             stringstream val(input);
             int day = 0;
@@ -95,12 +97,5 @@ bool advertiseClass::advertise(){
     }
   }
 
-  //Assuming that there is no error while the user input, this function will return true
-  //later in the main functions, true will be set as advertise successful
-
-  //if cancel is entered during advertise process, will return string false and stop
-  //the advertise process
-
-  //For now we just return true because we assume user/admin correctly used function
   return false;
 }

@@ -34,7 +34,6 @@ bool createClass::isFuncName(string toBeChecked){
   for (int i = 0; i < toBeChecked.length(); i++){
     lowerCased += tolower(toBeChecked[i], loc);
   }
-  cout << lowerCased << endl;
   //forgot to change here again
   for (int i = 0; i < 9; i++){
     if (lowerCased == userFuncs[i]){
@@ -94,6 +93,7 @@ bool createClass::create(string userLogName){
   while(input != "cancel"){
     validUsername = true;
     getline(cin,input);
+    cout << endl;
     //check if username between 15 characters
     if (input == "cancel"){
       return false;
@@ -109,17 +109,17 @@ bool createClass::create(string userLogName){
             newUserName = input;
             keepCont = true;
           } else {
-            cout << "\nName is invalid" << endl;
+            cout << "Name is invalid" << endl;
             cout << "Please enter new username, max 15 characters, no space, or cancel to cancel" << endl;
             cout << "Username: ";
           }
         } else {
           if (input.length() == 0){
-            cout << "\nName cannot be empty" << endl;
+            cout << "Name cannot be empty" << endl;
             cout << "Please enter new username, max 15 characters, no space, or cancel to cancel" << endl;
             cout << "Username: ";
           } else {
-            cout << "\nName longer than 15 characters" << endl;
+            cout << "Name longer than 15 characters" << endl;
             cout << "Please enter new username, max 15 characters, no space, or cancel to cancel" << endl;
             cout << "Username: ";
           }
@@ -128,6 +128,7 @@ bool createClass::create(string userLogName){
           cout << "User Type (AA = Admin, FS = Full-Standard, BS = Buy-Standard, SS = Sell-Standard)\n> ";
           while(input != "cancel"){
             cin >> input;
+            cout << endl;
             if (input == "cancel"){
               return false;
             } else {
@@ -136,7 +137,7 @@ bool createClass::create(string userLogName){
                 newUserType = input;
               } else {
                 keepCont = false;
-                cout << "\nUser type not valid" << endl;
+                cout << "User type not valid" << endl;
                 cout << "Please enter user Type (AA = Admin, FS = Full-Standard, BS = Buy-Standard, SS = Sell-Standard)\n> ";
               }
             }
@@ -148,24 +149,25 @@ bool createClass::create(string userLogName){
                 newBalance = 000000.00;
                 return true;
               } else {
-                cout << "\nInsert balance (e.g. 123.41 for $123.41, max $999999.99): $";
+                cout << "Insert balance (e.g. 123.41 for $123.41, max $999999.99): $";
                 while (input != "cancel"){
                   cin >> input;
+                  cout << endl;
                   if (isNumber(input)){
                     if ((0.0 < atof(input.c_str())) && (atof(input.c_str()) < 1000000.00)){
                       newBalance = atof(input.c_str());
                       return true;
                     } else {
-                      cout << "\nBalance out of range" << endl;
+                      cout << "Balance out of range" << endl;
                     }
                   } else {
                     if (input == "cancel"){
                       return false;
                     } else {
-                      cout << "\nValue not valid" << endl;
+                      cout << "Value not valid" << endl;
                     }
                   }
-                  cout << "\nInsert balance (e.g. 123.41 for $123.41, max $999999.99): $";
+                  cout << "Insert balance (e.g. 123.41 for $123.41, max $999999.99): $";
                 }
               }
 
@@ -173,11 +175,9 @@ bool createClass::create(string userLogName){
           }
         }
       } else {
-        cout << "\nUser exists! Please enter new username (15 characters, no space), or cancel to cancel" << endl;
+        cout << "User exists! Please enter new username (15 characters, no space), or cancel to cancel" << endl;
         cout << "Username (15 characters, no space): ";
       }
-
-
     }
   }
 

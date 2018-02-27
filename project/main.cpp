@@ -188,18 +188,20 @@ bool userMenu(string userLogName, string userBalance, string userType){
                   }
 
                 } else if (userType == "AA"){
-                  if (add.addCredit(userType, 1000000) == true){
+                  if (add.addCredit(userType, maxAddBalanceThisSession) == true){
                     //this is just example of output
                     cout << "Output: add credit process is done" << endl;
 
                     string bal = settingPrecision(add.credit);
 
                     appendLine = "06 " + add.targetUserName + spaceFiller(15, " ", add.targetUserName) + " " + userType + " " + spaceFiller(9, "0", bal) + bal;
-
-                    cout << appendLine << endl;
+                    uploadUpdates(appendLine,"files/userDailyUpdate.txt");
+                    //cout << appendLine << endl;
+                    cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=END=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << endl;
                     appendLine = "";
                   } else {
                     cout << "Output: process is cancelled" << endl;
+                    cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=END=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << endl;
                   }
                 }
 
@@ -230,6 +232,7 @@ bool userMenu(string userLogName, string userBalance, string userType){
                   appendLine = "";
                 } else {
                   cout << "Output: process is cancelled" << endl;
+                  cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=END=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << endl;
                 }
                 //append line will then be uploaded to userDailyUpdate.txt
             } else {
@@ -252,6 +255,7 @@ bool userMenu(string userLogName, string userBalance, string userType){
                   appendLine = "";
                 } else {
                   cout << "Output: process is cancelled" << endl;
+                  cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=END=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << endl;
                 }
                 //append line will then be uploaded to userDailyUpdate.txt
             } else {
@@ -275,6 +279,7 @@ bool userMenu(string userLogName, string userBalance, string userType){
                   appendLine = "";
                 } else {
                   cout << "Output: process is cancelled" << endl;
+                  cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=END=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << endl;
                 }
                 //append line will then be uploaded to userDailyUpdate.txt
             } else {
@@ -298,6 +303,7 @@ bool userMenu(string userLogName, string userBalance, string userType){
                   appendLine = "";
                 } else {
                   cout << "Output: process is cancelled" << endl;
+                  cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=END=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << endl;
                 }
                 //append line will then be uploaded to userDailyUpdate.txt
             } else {
@@ -321,6 +327,7 @@ bool userMenu(string userLogName, string userBalance, string userType){
                   appendLine = "";
                 } else {
                   cout << "Output: process is cancelled" << endl;
+                  cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=END=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << endl;
                 }
                 //append line will then be uploaded to userDailyUpdate.txt
             } else {
