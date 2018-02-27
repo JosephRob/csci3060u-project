@@ -1,0 +1,26 @@
+Enter command 'login' to login, or 'cancel' to cancel
+> Username: 
+Welcome to the auction, fsaccount!
+Type: FS	Balance: $100
+
+Menus: 
+add = Add balance
+advertise = Advertise an item
+bid = Bid on an item
+list = List all items available
+
+logout = Log out
+
+What would you like to do? (Type 'menu' to display menu) 
+Your account type does not support create.
+Only Admin support this option.
+
+Menus: 
+add = Add balance
+advertise = Advertise an item
+bid = Bid on an item
+list = List all items available
+
+logout = Log out
+
+What would you like to do? (Type 'menu' to display menu) Good bye

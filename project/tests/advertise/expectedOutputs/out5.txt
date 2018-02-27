@@ -1,0 +1,2 @@
+Enter command 'login' to login, or 'cancel' to cancel
+> Good bye
