@@ -19,12 +19,18 @@ What would you like to do? (Type 'menu' to display menu)
 =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=REFUND+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
 Enter BUYER username
 Username: 
+Buyer does not exist
+Enter BUYER username or cancel to cancel
+Username: 
+Buyer does not exist
+Enter BUYER username or cancel to cancel
+Username: 
 Enter SELLER username
 Username: 
 Enter credit to be returned
 Credit: $
 Balance of SELLER will be negative after refund process
-Output: process is cancelled
+Process is cancelled
 =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=END=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
 
 What would you like to do? (Type 'menu' to display menu) 
@@ -35,7 +41,7 @@ Enter SELLER username
 Username: 
 Enter credit to be returned
 Credit: $
-Output: refund process is done
+Refund process is done
 =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=END=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
 
 What would you like to do? (Type 'menu' to display menu) Good bye

@@ -1,4 +1,3 @@
-cancel
 login
 admin
 advertise
@@ -9,5 +8,6 @@ Macbook Pro
 9.99
 -100
 7
+
 logout
 EOF

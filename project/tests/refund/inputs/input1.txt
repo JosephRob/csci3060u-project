@@ -5,6 +5,7 @@ bsaccount
 fsaccount
 -1
 lots
+101
 50
 logout
 EOF

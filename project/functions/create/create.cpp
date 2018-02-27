@@ -27,14 +27,13 @@ bool createClass::contains(string toBeChecked, char checker){
 
 bool createClass::isFuncName(string toBeChecked){
   locale loc;
-  //error here forgot to put add, then forgot to change array size.
-  string userFuncs[9] = {"advertise", "bid", "create", "delete", "refund", "showmenu", "addcredit", "cancel", "add"};
+  string userFuncs[12] = {"advertise", "bid", "create", "delete", "refund", "showmenu", "addcredit", "cancel", "list", "show", "menu", "add"};
   string lowerCased;
   for (int i = 0; i < toBeChecked.length(); i++){
     lowerCased += tolower(toBeChecked[i], loc);
   }
-  //forgot to change here again
-  for (int i = 0; i < 9; i++){
+
+  for (int i = 0; i < 12; i++){
     if (lowerCased == userFuncs[i]){
       return true;
     }
@@ -93,11 +92,11 @@ bool createClass::create(string userLogName){
     validUsername = true;
     getline(cin,input);
     cout << endl;
-    //check if username between 15 characters
     if (input == "cancel"){
       return false;
     } else {
       if (!checkUser(input)){
+        //check if username between 15 characters
         if ((0 < input.length()) && (input.length() <= 15)){
           for (int i = 0 ; i < input.length(); i++){
             if (contains(input, ' ')){
@@ -126,7 +125,7 @@ bool createClass::create(string userLogName){
         if (keepCont){
           cout << "User Type (AA = Admin, FS = Full-Standard, BS = Buy-Standard, SS = Sell-Standard)\n> ";
           while(input != "cancel"){
-            cin >> input;
+            getline(cin,input);
             cout << endl;
             if (input == "cancel"){
               return false;
@@ -150,7 +149,7 @@ bool createClass::create(string userLogName){
               } else {
                 cout << "Insert balance (e.g. 123.41 for $123.41, max $999999.99): $";
                 while (input != "cancel"){
-                  cin >> input;
+                  getline(cin,input);
                   cout << endl;
                   if (isNumber(input)){
                     if ((0.0 < atof(input.c_str())) && (atof(input.c_str()) < 1000000.00)){

@@ -1,7 +1,8 @@
 Enter command 'login' to login, or 'cancel' to cancel
 > Must be logged in first in order to bid
 Please enter command 'login' to login, or 'cancel' to cancel.
-Username: 
+
+> Username: 
 Welcome to the auction, admin!
 Type: AA	Balance: $1e+06
 
@@ -20,7 +21,7 @@ logout = Log out
 What would you like to do? (Type 'menu' to display menu) 
 =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=BID=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
 Item name to bid: 
-Output: process is cancelled
+Process is cancelled
 =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=END=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
 
 What would you like to do? (Type 'menu' to display menu) Good bye

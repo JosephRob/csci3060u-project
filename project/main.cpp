@@ -169,7 +169,7 @@ bool userMenu(string userLogName, string userBalance, string userType){
                   if (maxAddBalanceThisSession > 0.0){
                     if (add.addCredit(userType, maxAddBalanceThisSession) == true){
                       //this is just example of output
-                      cout << "Output: add credit process is done" << endl;
+                      cout << "Add credit process is done" << endl;
 
                       string bal = settingPrecision(add.credit);
 
@@ -180,7 +180,7 @@ bool userMenu(string userLogName, string userBalance, string userType){
                       cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=END=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << endl;
                       appendLine = "";
                     } else {
-                      cout << "Output: process is cancelled" << endl;
+                      cout << "Process is cancelled" << endl;
                       cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=END=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << endl;
                     }
                   } else {
@@ -190,7 +190,7 @@ bool userMenu(string userLogName, string userBalance, string userType){
                 } else if (userType == "AA"){
                   if (add.addCredit(userType, maxAddBalanceThisSession) == true){
                     //this is just example of output
-                    cout << "Output: add credit process is done" << endl;
+                    cout << "Add credit process is done" << endl;
 
                     string bal = settingPrecision(add.credit);
 
@@ -200,7 +200,7 @@ bool userMenu(string userLogName, string userBalance, string userType){
                     cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=END=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << endl;
                     appendLine = "";
                   } else {
-                    cout << "Output: process is cancelled" << endl;
+                    cout << "Process is cancelled" << endl;
                     cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=END=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << endl;
                   }
                 }
@@ -216,7 +216,7 @@ bool userMenu(string userLogName, string userBalance, string userType){
                 advertiseClass adver;
                 if (adver.advertise() == true){
                   //this is just example of output
-                  cout << "Output: advertise process is done" << endl;
+                  cout << "Advertise process is done" << endl;
 
                   string startValue = settingPrecision(adver.startingValue);
 
@@ -231,7 +231,7 @@ bool userMenu(string userLogName, string userBalance, string userType){
                   cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=END=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << endl;
                   appendLine = "";
                 } else {
-                  cout << "Output: process is cancelled" << endl;
+                  cout << "Process is cancelled" << endl;
                   cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=END=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << endl;
                 }
                 //append line will then be uploaded to userDailyUpdate.txt
@@ -245,7 +245,7 @@ bool userMenu(string userLogName, string userBalance, string userType){
                 bidClass bid;
                 if(bid.bid(userType) == true){
                   //this is just example of output
-                  cout << "Output: bid process is done" << endl;
+                  cout << "Bid process is done" << endl;
 
                   string bidVal = settingPrecision(bid.bidValue);
                   appendLine = "04 " + bid.itemName + spaceFiller(25, " ", bid.itemName) + " " + bid.itemOwner + spaceFiller(15, " ", bid.itemOwner) + " " + userLogName + spaceFiller(15, " ", userLogName) + " " + spaceFiller(6, "0", bidVal) + bidVal;
@@ -254,7 +254,7 @@ bool userMenu(string userLogName, string userBalance, string userType){
                   cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=END=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << endl;
                   appendLine = "";
                 } else {
-                  cout << "Output: process is cancelled" << endl;
+                  cout << "Process is cancelled" << endl;
                   cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=END=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << endl;
                 }
                 //append line will then be uploaded to userDailyUpdate.txt
@@ -268,7 +268,7 @@ bool userMenu(string userLogName, string userBalance, string userType){
                 createClass create;
                 if(create.create(userLogName) == true){
                   //this is just example of output
-                  cout << "Output: create process is done" << endl;
+                  cout << "Create process is done" << endl;
 
                   string startVal = settingPrecision(create.newBalance);
 
@@ -278,7 +278,7 @@ bool userMenu(string userLogName, string userBalance, string userType){
                   cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=END=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << endl;
                   appendLine = "";
                 } else {
-                  cout << "Output: process is cancelled" << endl;
+                  cout << "Process is cancelled" << endl;
                   cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=END=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << endl;
                 }
                 //append line will then be uploaded to userDailyUpdate.txt
@@ -292,7 +292,7 @@ bool userMenu(string userLogName, string userBalance, string userType){
                 deleteClass deleteC;
                 if(deleteC.deleteUser(userLogName) == true){
                   //this is just example of output
-                  cout << "Output: delete process is done" << endl;
+                  cout << "Delete process is done" << endl;
 
                   string curBalance = settingPrecision(deleteC.userBalance);
 
@@ -302,7 +302,7 @@ bool userMenu(string userLogName, string userBalance, string userType){
                   cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=END=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << endl;
                   appendLine = "";
                 } else {
-                  cout << "Output: process is cancelled" << endl;
+                  cout << "Process is cancelled" << endl;
                   cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=END=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << endl;
                 }
                 //append line will then be uploaded to userDailyUpdate.txt
@@ -316,7 +316,7 @@ bool userMenu(string userLogName, string userBalance, string userType){
                 refundClass refund;
                 if(refund.refund() == true){
                   //this is just example of output
-                  cout << "Output: refund process is done" << endl;
+                  cout << "Refund process is done" << endl;
 
                   string refundCredit = settingPrecision(refund.credit);
 
@@ -326,7 +326,7 @@ bool userMenu(string userLogName, string userBalance, string userType){
                   cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=END=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << endl;
                   appendLine = "";
                 } else {
-                  cout << "Output: process is cancelled" << endl;
+                  cout << "Process is cancelled" << endl;
                   cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=END=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << endl;
                 }
                 //append line will then be uploaded to userDailyUpdate.txt
@@ -349,13 +349,14 @@ int main(int argc, const char * argv[]) {
     bool loggedIn = false;
     bool loggedOut = true; //when system starts, everyone is initially logged out
     string userInput;
-    string funcs[] = {"advertise", "bid", "create", "delete", "refund", "add"};
+    string funcs[] = {"advertise", "bid", "create", "delete", "refund", "add", "list"};
 
     //user info
     string userLogName, userType, userBalance;
 
-    cout << "Enter command 'login' to login, or 'cancel' to cancel\n> ";
+    cout << "Enter command 'login' to login, or 'cancel' to cancel";
     while(loggedIn == false){
+      cout << "\n> ";
         cin >> userInput;
         if (userInput == "login"){
             //do the login then break

@@ -81,7 +81,6 @@ bool addCreditClass::addCredit(string userType, double maxAddBalanceThisSession)
   getline(cin, input);
   cout << endl;
   while(input != "cancel"){
-    //check if valid should be under the while loop not before.
     validValue = isNumber(input);
     if (validValue) {
       addBalance = atof(input.c_str());

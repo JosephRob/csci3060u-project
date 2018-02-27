@@ -75,27 +75,27 @@ bool refundClass::checkUser(string userName){
 This is the refund function
 */
 bool refundClass::refund(){
-  //string seller, buyer;
   string input;
   cout << "\n=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=REFUND+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << endl;
   cout << "Enter BUYER username" << endl;
   cout << "Username: ";
+  cin.ignore();
   while(input != "cancel"){
-    cin >> input;
+    getline (cin,input);
     cout << endl;
     if (checkUser(input)){
       buyerName = input;
       cout << "Enter SELLER username" << endl;
       cout << "Username: ";
       while(input != "cancel"){
-        cin >> input;
+        getline (cin,input);
         cout << endl;
         if (checkUser(input)){
           sellerName = input;
           cout << "Enter credit to be returned" << endl;
           cout << "Credit: $";
           while (input != "cancel"){
-            cin >> input;
+            getline (cin,input);
             cout << endl;
             if (isNumber(input)){
               if ((0.0 < atof(input.c_str())) && (atof(input.c_str()) < 1000000.0)){
@@ -110,15 +110,15 @@ bool refundClass::refund(){
                     return false;
                   }
                 } else {
-                  cout << "Balance of BUYER will be over $999999.99 after refund process" << endl;
+                  cout << "Balance of BUYER will be over maximum balance after refund process" << endl;
                   return false;
                 }
 
               } else {
-                cout << "\nCredit out of range" << endl;
+                cout << "Credit out of range" << endl;
               }
             } else {
-              cout << "\nCredit not valid" << endl;
+              cout << "Credit not valid" << endl;
             }
             cout << "Credit: $";
           }
@@ -126,7 +126,7 @@ bool refundClass::refund(){
           if (input == "cancel"){
             return false;
           } else {
-            cout << "\nSeller does not exist" << endl;
+            cout << "Seller does not exist" << endl;
             cout << "Enter SELLER username or cancel to cancel" << endl;
           }
         }
@@ -136,17 +136,12 @@ bool refundClass::refund(){
       if (input == "cancel"){
         return false;
       } else {
-        cout << "\nBuyer does not exist" << endl;
+        cout << "Buyer does not exist" << endl;
         cout << "Enter BUYER username or cancel to cancel" << endl;
       }
     }
     cout << "Username: ";
   }
 
-  //if refund success, will return true
-  //if refund process is cancelled, (balance of seller is negative after deduction or cancel is entered),
-  //will return false, and will stop the process.
-
-  //For now we return true
   return false;
 }
