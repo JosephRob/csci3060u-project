@@ -1,0 +1,20 @@
+Enter command 'login' to login, or 'cancel' to cancel
+> Username: 
+Welcome to the auction, admin!
+Type: AA	Balance: $1e+06
+
+Menus: 
+add = Add balance
+advertise = Advertise an item
+bid = Bid on an item
+create = Create new user
+delete = Delete a user
+refund = Refund an item
+
+list = List all items available
+
+logout = Log out
+
+What would you like to do? (Type 'menu' to display menu) Already logged in
+
+What would you like to do? (Type 'menu' to display menu) Good bye
