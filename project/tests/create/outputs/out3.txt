@@ -20,12 +20,10 @@ What would you like to do? (Type 'menu' to display menu)
 Username (15 characters, no space): 
 Name is invalid
 Please enter new username, max 15 characters, no space, or cancel to cancel
-Username: add
-
+Username: 
 Name is invalid
 Please enter new username, max 15 characters, no space, or cancel to cancel
-Username: advertise
-
+Username: 
 Name is invalid
 Please enter new username, max 15 characters, no space, or cancel to cancel
 Username: 
@@ -36,7 +34,7 @@ Please enter new username, max 15 characters, no space, or cancel to cancel
 Username: 
 Name cannot be empty
 Please enter new username, max 15 characters, no space, or cancel to cancel
-Username: fsaccount2
+Username: 
 User Type (AA = Admin, FS = Full-Standard, BS = Buy-Standard, SS = Sell-Standard)
 > 
 User type not valid
@@ -53,11 +51,10 @@ Please enter user Type (AA = Admin, FS = Full-Standard, BS = Buy-Standard, SS = 
 > 
 Insert balance (e.g. 123.41 for $123.41, max $999999.99): $
 Balance out of range
-
 Insert balance (e.g. 123.41 for $123.41, max $999999.99): $
 Balance out of range
-
-Insert balance (e.g. 123.41 for $123.41, max $999999.99): $Output: create process is done
+Insert balance (e.g. 123.41 for $123.41, max $999999.99): $
+Output: create process is done
 =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=END=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
 
 What would you like to do? (Type 'menu' to display menu) Good bye
