@@ -85,32 +85,35 @@ bool addCreditClass::addCredit(string userType, double maxAddBalanceThisSession)
     validValue = isNumber(input);
     if (validValue) {
       addBalance = atof(input.c_str());
-      if ((maxAddBalanceThisSession - addBalance >= 0.0) && (addBalance > 0.0)){
-        credit = addBalance;
-        //if admin does the addCredit, will ask the target userName
-        if (userType == "AA"){
-          cout << "Input target username" << endl;
-          cout << "Username: ";
-          cin >> target;
-          cout << endl;
-          while(target != "cancel"){
-            if (checkTarget(target)){
-              targetUserName = target;
-              return true;
-            } else {
-              cout << "User does not exist, please re-input user, or cancel to cancel" << endl;
-              cout << "Username: ";
-              cin >> target;
-              cout << endl;
-            }
-          }
-          return false;
-        }
-        return true;
-
+      if (addBalance > 1000.0){
+        cout << "Cannot add more than 1000 per user per session" << endl;
       } else {
-        if (addBalance > maxAddBalanceThisSession){
-          cout << "Cannot add more than maximum balance for this session." << endl;
+        if ((maxAddBalanceThisSession - addBalance >= 0.0) && (addBalance > 0.0)){
+          credit = addBalance;
+          //if admin does the addCredit, will ask the target userName
+          if (userType == "AA"){
+            cout << "Input target username" << endl;
+            cout << "Username: ";
+            cin >> target;
+            cout << endl;
+            while(target != "cancel"){
+              if (checkTarget(target)){
+                targetUserName = target;
+                return true;
+              } else {
+                cout << "User does not exist, please re-input user, or cancel to cancel" << endl;
+                cout << "Username: ";
+                cin >> target;
+                cout << endl;
+              }
+            }
+            return false;
+          }
+          return true;
+        } else {
+          if (addBalance > maxAddBalanceThisSession){
+            cout << "Cannot add more than maximum balance for this session." << endl;
+          }
         }
       }
     } else {
@@ -119,6 +122,7 @@ bool addCreditClass::addCredit(string userType, double maxAddBalanceThisSession)
     cout << "Enter new balance to add, or cancel to cancel" << endl;
     cout << "Add balance: $";
     getline(cin, input);
+    cout << endl;
   }
   return false;
 }

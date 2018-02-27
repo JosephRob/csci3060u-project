@@ -51,7 +51,7 @@ bool advertiseClass::advertise(){
     itemName = input;
     while(input != "cancel"){
       cout << "Starting Price (e.g. 15.31 for $15.31, max $999.99): $";
-      cin >> input;
+      getline(cin, input);
       cout << endl;
       validValue = is_number(input);
       if (validValue){
@@ -59,7 +59,7 @@ bool advertiseClass::advertise(){
           startingValue = atof(input.c_str());
           while(input!="cancel"){
             cout << "Days (e.g. 7 for 7 days, max 999 days): ";
-            cin >> input;
+            getline(cin, input);
             cout << endl;
             validValue = is_number(input);
             stringstream val(input);

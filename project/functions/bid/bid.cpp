@@ -174,7 +174,7 @@ bool bidClass::bid(string userType){
                       }
                     }
                   } else {
-                    if ((atof(input.c_str()) < currentBid*1.05)){
+                    if ((atof(input.c_str()) < currentBid*1.05)){ //got error here
                       cout << "Bid must be minimum 5 percent higher than current value" << endl;
                     } else {
                       if(atof(input.c_str()) > 999.99){
@@ -209,15 +209,5 @@ bool bidClass::bid(string userType){
     cout << endl;
   }
 
-  //check if it itemOwner exists with the item name to be bid.
-
-  //check if bid value is at least 5%, except Admin
-
-  //if success, this function will return true
-
-  //if cancel is entered during bid process, will return false to stop bid process
-  //and redirect to menu
-
-  //But for now will return true because we assume user/admin used bid class correctly
   return false;
 }

@@ -30,7 +30,7 @@ bool deleteClass::checkUser(string userName){
             userType = theLine[1];
             userBalance = atof(theLine[2].c_str());
             inFile.close();
-            if (theLine[1] == "AA"){ //cannot delete admin
+            if (theLine[1] == "AA"){ //forgot to cannot delete admin
               return false;
             } else {
               return true;

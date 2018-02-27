@@ -5,5 +5,9 @@ add
 500
 notexistacc
 fsaccount
+add
+2000
+1000
+bsaccount
 logout
 EOF

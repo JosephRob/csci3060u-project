@@ -6,7 +6,6 @@
 #include <fstream>
 #include <sstream>
 
-
 /*
 This is the constructor
 This sets the variables into initial values
@@ -170,7 +169,6 @@ bool createClass::create(string userLogName){
                   cout << "Insert balance (e.g. 123.41 for $123.41, max $999999.99): $";
                 }
               }
-
             }
           }
         }
