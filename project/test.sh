@@ -27,5 +27,5 @@ done
 diff -q files/dailyUpdate.txt tests/expectedDay.txt
 
 make clean
-cp filesTemp/* files
-rm filesTemp -r
+#cp filesTemp/* files
+#rm filesTemp -r
