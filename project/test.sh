@@ -22,17 +22,16 @@ do
             if [ "$?" -ne "0" ]; then
                 fails=$fails+1
             fi
-
             place=$place+1
         done
         # rm -r $file/outputs
     fi
 done
-
+echo "./files/dailyUpdate.txt"
+diff -q files/dailyUpdate.txt tests/expectedDay.txt
+fails=$?+$fails
 echo "$fails test(s) failed"
 
-diff -q files/dailyUpdate.txt tests/expectedDay.txt
-
-make clean      
+make clean
 cp filesTemp/* files
 rm filesTemp -r
