@@ -14,5 +14,7 @@ public:
   deleteClass();
   bool deleteUser(string userLogName);
   bool checkUser(string userName);
+  string spaceFiller(int totChar, string filler, string word);
+  string settingPrecision(double numb);
 };
 #endif

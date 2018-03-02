@@ -16,11 +16,11 @@ do
         do
             #echo $place
             echo $test
-            ./theProgram < $test > $file"/outputs/out"$place".txt"
+            ./auction-system.exe < $test > $file"/outputs/out"$place".txt"
             diff -q $file/outputs/out$place.txt $file/expectedOutputs/out$place.txt
             place=$place+1
         done
-        rm -r $file/outputs
+        # rm -r $file/outputs
     fi
 done
 

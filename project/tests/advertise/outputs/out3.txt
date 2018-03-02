@@ -1,0 +1,34 @@
+Enter command 'login' to login, or 'cancel' to cancel
+> Username: 
+Welcome to the auction, fsaccount!
+Type: FS	Balance: $100
+
+Menus: 
+add = Add balance
+advertise = Advertise an item
+bid = Bid on an item
+list = List all items available
+
+logout = Log out
+
+What would you like to do? (Type 'menu' to display menu) 
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+ADVERTISE+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+Item Name (e.g. Macbook Pro, max 25 character including spaces): 
+Starting Price (e.g. 15.31 for $15.31, max $999.99): $
+Not a valid value
+Please enter valid value, or cancel to cancel
+Starting Price (e.g. 15.31 for $15.31, max $999.99): $
+Not a valid value
+Please enter valid value, or cancel to cancel
+Starting Price (e.g. 15.31 for $15.31, max $999.99): $
+Not a valid value
+Please enter valid value, or cancel to cancel
+Starting Price (e.g. 15.31 for $15.31, max $999.99): $
+Not a valid value
+Please enter valid value, or cancel to cancel
+Starting Price (e.g. 15.31 for $15.31, max $999.99): $
+Days (e.g. 7 for 7 days, max 999 days): 
+Process is cancelled
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=END=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+What would you like to do? (Type 'menu' to display menu) Good bye

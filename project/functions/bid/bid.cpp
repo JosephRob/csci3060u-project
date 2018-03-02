@@ -149,7 +149,7 @@ bool bidClass::bid(string userType){
             }
           }
           if (cont){
-            if (currentBid >= 999.99){
+            if (currentBid >= 999.99){ //error here too, forgot to give 999.99 max price for an item
               cout << "Item is in maximum price, you cannot bid on this item anymore\nSorry! :(" << endl;
               return false;
             } else {

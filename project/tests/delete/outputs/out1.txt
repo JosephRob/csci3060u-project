@@ -1,9 +1,9 @@
 Enter command 'login' to login, or 'cancel' to cancel
-> Username:
+> Username: 
 Welcome to the auction, admin!
 Type: AA	Balance: $1e+06
 
-Menus:
+Menus: 
 add = Add balance
 advertise = Advertise an item
 bid = Bid on an item
@@ -15,21 +15,21 @@ list = List all items available
 
 logout = Log out
 
-What would you like to do? (Type 'menu' to display menu)
+What would you like to do? (Type 'menu' to display menu) 
 =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=CREATE+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
 Enter username to be deleted
-Username:
+Username: 
 Cannot delete user admin2
 Enter username to be deleted or cancel to cancel
-Username:
+Username: 
 Cannot delete user admin
 Enter username to be deleted or cancel to cancel
-Username:
+Username: 
 Cannot delete user notexistacc
 Enter username to be deleted or cancel to cancel
-Username:
+Username: 
 Are you sure you want to delete deletedacc? (yes/no):
->
+> 
 Delete process is done
 =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=END=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
 

@@ -1,9 +1,9 @@
 Enter command 'login' to login, or 'cancel' to cancel
-> Username:
+> Username: 
 Welcome to the auction, admin!
 Type: AA	Balance: $1e+06
 
-Menus:
+Menus: 
 add = Add balance
 advertise = Advertise an item
 bid = Bid on an item
@@ -15,12 +15,12 @@ list = List all items available
 
 logout = Log out
 
-What would you like to do? (Type 'menu' to display menu)
+What would you like to do? (Type 'menu' to display menu) 
 =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=REFUND+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
 Enter BUYER username
-Username:
+Username: 
 Enter SELLER username
-Username:
+Username: 
 Enter credit to be returned
 Credit: $
 Credit not valid
@@ -31,7 +31,7 @@ Balance of SELLER will be negative after refund process
 Process is cancelled
 =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=END=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
 
-What would you like to do? (Type 'menu' to display menu)
+What would you like to do? (Type 'menu' to display menu) 
 Wrong input, please re-input!
 
 What would you like to do? (Type 'menu' to display menu) Good bye

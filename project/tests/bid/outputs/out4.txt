@@ -1,0 +1,36 @@
+Enter command 'login' to login, or 'cancel' to cancel
+> Username: 
+Welcome to the auction, admin!
+Type: AA	Balance: $1e+06
+
+Menus: 
+add = Add balance
+advertise = Advertise an item
+bid = Bid on an item
+create = Create new user
+delete = Delete a user
+refund = Refund an item
+
+list = List all items available
+
+logout = Log out
+
+What would you like to do? (Type 'menu' to display menu) 
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=BID=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+Item name to bid: 
+
+Item Name                 Seller          Value 
+Macbook Pro fsaccount $952
+Macbook Pro ssaccount $999
+Macbook Pro admin $999.99
+
+Enter Seller Username
+Username: 
+Bid Value (e.g. 53 for $53.00, max item price is $999.99): $
+Cannot bid lower or same to current bid
+Enter new value, or cancel to cancel
+Bid Value (e.g. 53 for $53.00, max item price is $999.99): $
+Bid process is done
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=END=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+What would you like to do? (Type 'menu' to display menu) Good bye
