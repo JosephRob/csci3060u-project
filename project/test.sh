@@ -16,7 +16,11 @@ do
         do
             #echo $place
             echo $test
+<<<<<<< HEAD
             ./auction-system.exe < $test > $file"/outputs/out"$place".txt"
+=======
+            ./auctionHouse < $test > $file"/outputs/out"$place".txt"
+>>>>>>> e138b312e77e2db27f2278332ff1f5ee4614ca17
             diff -q $file/outputs/out$place.txt $file/expectedOutputs/out$place.txt
             place=$place+1
         done
@@ -26,6 +30,6 @@ done
 
 diff -q files/dailyUpdate.txt tests/expectedDay.txt
 
-make clean
+make clean      
 cp filesTemp/* files
 rm filesTemp -r
