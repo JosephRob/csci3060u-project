@@ -93,6 +93,7 @@ bool addCreditClass::addCredit(string userType, double maxAddBalanceThisSession)
           if (userType == "AA"){
             cout << "Input target username" << endl;
             cout << "Username: ";
+            // getline(cin,target);
             cin >> target;
             cout << endl;
             while(target != "cancel"){
@@ -102,6 +103,7 @@ bool addCreditClass::addCredit(string userType, double maxAddBalanceThisSession)
               } else {
                 cout << "User does not exist, please re-input user, or cancel to cancel" << endl;
                 cout << "Username: ";
+                // getline(cin,target);
                 cin >> target;
                 cout << endl;
               }

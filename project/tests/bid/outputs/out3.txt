@@ -1,0 +1,35 @@
+Enter command 'login' to login, or 'cancel' to cancel
+> Username: 
+Welcome to the auction, fsaccount!
+Type: FS	Balance: $100
+
+Menus: 
+add = Add balance
+advertise = Advertise an item
+bid = Bid on an item
+list = List all items available
+
+logout = Log out
+
+What would you like to do? (Type 'menu' to display menu) 
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=BID=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+Item name to bid: 
+
+Item Name                 Seller          Value 
+Laptop admin $12
+Laptop admin $112
+
+Enter Seller Username
+Username: 
+Bid Value (e.g. 53 for $53.00, max item price is $999.99): $
+Please input valid value, or cancel to cancel
+Bid Value (e.g. 53 for $53.00, max item price is $999.99): $
+Please input valid value, or cancel to cancel
+Bid Value (e.g. 53 for $53.00, max item price is $999.99): $
+Maximum item price is $999.99
+Enter new value, or cancel to cancel
+Bid Value (e.g. 53 for $53.00, max item price is $999.99): $
+Bid process is done
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=END=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+What would you like to do? (Type 'menu' to display menu) Good bye

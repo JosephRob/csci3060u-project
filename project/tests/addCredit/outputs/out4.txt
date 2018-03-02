@@ -16,22 +16,14 @@ list = List all items available
 logout = Log out
 
 What would you like to do? (Type 'menu' to display menu) 
-=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=REFUND+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
-Enter BUYER username
++=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=ADD CREDIT=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+How much money to add? Max $1000.00 per day. (e.g. 12.45 to add $12.45)
+Your max credit to add this session is only $1000.00
+Enter credit or cancel to cancel
+Add balance: $
+Input target username
 Username: 
-Enter SELLER username
-Username: 
-Enter credit to be returned
-Credit: $
-Credit not valid
-Credit: $
-Credit not valid
-Credit: $
-Balance of SELLER will be negative after refund process
-Process is cancelled
+Add credit process is done
 =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=END=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
-
-What would you like to do? (Type 'menu' to display menu) 
-Wrong input, please re-input!
 
 What would you like to do? (Type 'menu' to display menu) Good bye

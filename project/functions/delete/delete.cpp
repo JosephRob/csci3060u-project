@@ -4,11 +4,28 @@
 #include <vector>
 #include <sstream>
 #include <fstream>
+#include <iomanip>
 
 /*
 This is the constructor for delete class
 This sets initial value to variables
 */
+string deleteClass::spaceFiller(int totChar, string filler, string word){
+    string fill;
+    for (int i = 0; i < (totChar-word.length());i++){
+        fill += filler;
+    }
+    return fill;
+}
+
+string deleteClass::settingPrecision(double numb){
+  string presValue;
+  stringstream value;
+  value << fixed << setprecision(2) << numb;
+  presValue = value.str();
+  return presValue;
+}
+
 deleteClass::deleteClass(){
   deleteUserName = "";
   userType = "";
@@ -50,6 +67,7 @@ bool deleteClass::deleteUser(string userLogName){
   cout << "\n=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=CREATE+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << endl;
   string userToDel, confirmation;
   string input;
+  string balance, appendDelete;
   cout << "Enter username to be deleted" << endl;
   cout << "Username: ";
   while(input != "cancel"){
@@ -65,16 +83,41 @@ bool deleteClass::deleteUser(string userLogName){
           cout << endl;
           if (confirmation == "yes"){
             deleteUserName = input;
+            balance = settingPrecision(userBalance);
+            appendDelete = deleteUserName + spaceFiller(15, " ", deleteUserName) + " ** " + spaceFiller(9, "0", balance) + balance;
             //change the value of userType deleted to **,
             //item name owned by user to **********
             //to tell next session that the user deleted
             //cannot login (delete active immediately)
+
+            string userListInsides, line, word;
+            ifstream fileIn ("files/userList.txt");
+            while (getline(fileIn,line)){
+
+                stringstream data(line);
+                vector<string> theLine;
+                while(getline(data,word,' ')){
+                    if (word != ""){
+                        theLine.push_back(word);
+                    }
+                }
+                if (theLine[0] != deleteUserName){
+                  userListInsides += line + "\n";
+                } else {
+                  userListInsides += appendDelete + "\n";
+                }
+            }
+            fileIn.close();
+            //
+            ofstream fileOut ("files/userList.txt");
+            fileOut << userListInsides;
+            fileOut.close();
             return true;
           } else if (confirmation == "no"){
             return false;
           } else {
             cout << "Input invalid" << endl;
-            cout << "Are you sure you want to delete " + input + "? (yes/no):\n> ";
+            // cout << "Are you sure you want to delete " + input + "? (yes/no):\n> ";
           }
         }
       } else {

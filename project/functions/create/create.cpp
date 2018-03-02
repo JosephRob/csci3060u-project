@@ -92,6 +92,7 @@ bool createClass::create(string userLogName){
     validUsername = true;
     getline(cin,input);
     cout << endl;
+
     if (input == "cancel"){
       return false;
     } else {

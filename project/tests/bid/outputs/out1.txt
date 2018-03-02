@@ -1,0 +1,22 @@
+Enter command 'login' to login, or 'cancel' to cancel
+> Username: 
+Welcome to the auction, ssaccount!
+Type: SS	Balance: $100
+
+Menus: 
+advertise = Advertise an item
+list = List all items available
+
+logout = Log out
+
+What would you like to do? (Type 'menu' to display menu) 
+Your account type does not support bidding.
+Only Admin or Full-Standard or Buy-Standard support this option.
+
+Menus: 
+advertise = Advertise an item
+list = List all items available
+
+logout = Log out
+
+What would you like to do? (Type 'menu' to display menu) Good bye

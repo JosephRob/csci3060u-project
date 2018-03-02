@@ -337,7 +337,7 @@ bool userMenu(string userLogName, string userBalance, string userType){
         } else if (menuInput == "logout") {
             return true; //done
         } else {
-            cout << "Wrong input, please re-input!" << endl;
+            cout << "\nWrong input, please re-input!" << endl;
         }
     }
     return false;
@@ -373,9 +373,15 @@ int main(int argc, const char * argv[]) {
                         userBalance = result[2];
                         loggedIn = true;
                         loggedOut = false;
-                        //everytime login is successfull, create userDailyUpdate. userDailyUpdate file is temporary. Will be deleted after user is logged out, before the system stops.
-                        uploadUpdates("10 " + userLogName + spaceFiller(15, " ", userLogName) + " " + userType + " " + spaceFiller(9, "0", userBalance) + userBalance + "\n","files/userDailyUpdate.txt");
-                        break;
+                        if (userType != "**"){
+                          //everytime login is successfull, create userDailyUpdate. userDailyUpdate file is temporary. Will be deleted after user is logged out, before the system stops.
+                          uploadUpdates("10 " + userLogName + spaceFiller(15, " ", userLogName) + " " + userType + " " + spaceFiller(9, "0", userBalance) + userBalance + "\n","files/userDailyUpdate.txt");
+                          break;
+                        } else {
+                          cout << "Your account has been deleted by admin. Sorry!" << endl;
+                          cout << "Goodbye!" << endl;
+                          return 0;
+                        }
                     } else {
                         cout << "Username not found." << endl;
                         cout << "Please re-input username, or 'cancel' to cancel.\n> ";

@@ -17,7 +17,7 @@ do
             #echo $place
             echo $test
             ./auctionHouse < $test > $file"/outputs/out"$place".txt"
-            diff -q $file/outputs/out$place.txt $file/expectedOutputs/out$place.txt
+            diff  $file/outputs/out$place.txt $file/expectedOutputs/out$place.txt
             
             if [ "$?" -ne "0" ]; then
                 fails=$fails+1
@@ -25,7 +25,7 @@ do
 
             place=$place+1
         done
-        rm -r $file/outputs
+        # rm -r $file/outputs
     fi
 done
 
@@ -33,6 +33,6 @@ echo "$fails test(s) failed"
 
 diff -q files/dailyUpdate.txt tests/expectedDay.txt
 
-#make clean      
-#cp filesTemp/* files
-#m filesTemp -r
+make clean      
+cp filesTemp/* files
+rm filesTemp -r

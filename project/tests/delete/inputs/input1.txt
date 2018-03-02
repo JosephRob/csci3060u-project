@@ -4,6 +4,6 @@ delete
 admin2
 admin
 notexistacc
-fsaccount
+deletedacc
 yes
 logout
