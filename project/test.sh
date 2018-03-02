@@ -24,7 +24,7 @@ do
             fi
             place=$place+1
         done
-        # rm -r $file/outputs
+        rm -r $file/outputs
     fi
 done
 echo "./files/dailyUpdate.txt"
