@@ -9,6 +9,7 @@
 #include <iomanip>
 
 // HELPER FUNCTION(S)
+//this function checks if the number is a valid number
 bool bidClass::isNumber(const string& s){
     if (s.empty())
        return false;
@@ -22,6 +23,8 @@ bool bidClass::isNumber(const string& s){
     return true;
 }
 
+//this function checks the item that the user wants
+//this also fetch the item name, item owner, and current bid
 vector<string> bidClass::checkItem(string itemName){
   string line, word;
   ifstream inFile ("files/itemList.txt");
@@ -149,7 +152,7 @@ bool bidClass::bid(string userType){
             }
           }
           if (cont){
-            if (currentBid >= 999.99){ //error here too, forgot to give 999.99 max price for an item
+            if (currentBid >= 999.99){
               cout << "Item is in maximum price, you cannot bid on this item anymore\nSorry! :(" << endl;
               return false;
             } else {
@@ -164,7 +167,7 @@ bool bidClass::bid(string userType){
                       cout << "Maximum item price is $999.99" << endl;
                       cout << "Enter new value, or cancel to cancel" << endl;
                     } else {
-                      //forgot to add so that admin cannot bid lower than the current bid.
+
                       if (atof(input.c_str()) <= currentBid){
                         cout << "Cannot bid lower or same to current bid" << endl;
                         cout << "Enter new value, or cancel to cancel" << endl;
@@ -174,7 +177,7 @@ bool bidClass::bid(string userType){
                       }
                     }
                   } else {
-                    if ((atof(input.c_str()) < currentBid*1.05)){ //got error here
+                    if ((atof(input.c_str()) < currentBid*1.05)){
                       cout << "Bid must be minimum 5 percent higher than current value" << endl;
                     } else {
                       if(atof(input.c_str()) > 999.99){

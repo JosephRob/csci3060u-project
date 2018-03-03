@@ -18,6 +18,8 @@ string deleteClass::spaceFiller(int totChar, string filler, string word){
     return fill;
 }
 
+//this function set precision of the double value to
+//2 digits and return as string
 string deleteClass::settingPrecision(double numb){
   string presValue;
   stringstream value;
@@ -26,12 +28,15 @@ string deleteClass::settingPrecision(double numb){
   return presValue;
 }
 
+//this is the delete constructor
 deleteClass::deleteClass(){
   deleteUserName = "";
   userType = "";
   userBalance = 0.0;
 }
 
+//this function checks if the user exists or not
+//because if user exists, we cannot have the same username
 bool deleteClass::checkUser(string userName){
     string line, word;
     ifstream inFile ("files/userList.txt");
@@ -47,7 +52,7 @@ bool deleteClass::checkUser(string userName){
             userType = theLine[1];
             userBalance = atof(theLine[2].c_str());
             inFile.close();
-            if (theLine[1] == "AA"){ //forgot to cannot delete admin
+            if (theLine[1] == "AA"){
               return false;
             } else {
               return true;
@@ -86,7 +91,6 @@ bool deleteClass::deleteUser(string userLogName){
             balance = settingPrecision(userBalance);
             appendDelete = deleteUserName + spaceFiller(15, " ", deleteUserName) + " ** " + spaceFiller(9, "0", balance) + balance;
             //change the value of userType deleted to **,
-            //item name owned by user to **********
             //to tell next session that the user deleted
             //cannot login (delete active immediately)
 
@@ -108,7 +112,6 @@ bool deleteClass::deleteUser(string userLogName){
                 }
             }
             fileIn.close();
-            //
             ofstream fileOut ("files/userList.txt");
             fileOut << userListInsides;
             fileOut.close();
@@ -117,7 +120,6 @@ bool deleteClass::deleteUser(string userLogName){
             return false;
           } else {
             cout << "Input invalid" << endl;
-            // cout << "Are you sure you want to delete " + input + "? (yes/no):\n> ";
           }
         }
       } else {

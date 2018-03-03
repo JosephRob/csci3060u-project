@@ -15,6 +15,7 @@ refundClass::refundClass(){
   credit = 0.0;
 }
 
+//this function checks if the number is a valid number
 bool refundClass::isNumber(const string& s){
     if (s.empty()){
       return false;
@@ -28,6 +29,7 @@ bool refundClass::isNumber(const string& s){
     }
     return true;
 }
+
 
 double refundClass::getBalance(string userName){
   string line, word;
@@ -51,6 +53,7 @@ double refundClass::getBalance(string userName){
   return balance;
 }
 
+//this function checks if the user exists or not
 bool refundClass::checkUser(string userName){
     string line, word;
     ifstream inFile ("files/userList.txt");

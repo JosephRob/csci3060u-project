@@ -10,6 +10,8 @@
 #include <stdlib.h>
 using namespace std;
 // HELPER FUNCTION(S)
+
+//this function checks if the number is a valid number
 bool addCreditClass::isNumber(const string& s){
     if (s.empty())
        return false;
@@ -23,6 +25,7 @@ bool addCreditClass::isNumber(const string& s){
     return true;
 }
 
+//this function checks if a user exists or not
 bool addCreditClass::checkTarget(string userName){
     string line, word;
     ifstream inFile ("files/userList.txt");
@@ -93,7 +96,6 @@ bool addCreditClass::addCredit(string userType, double maxAddBalanceThisSession)
           if (userType == "AA"){
             cout << "Input target username" << endl;
             cout << "Username: ";
-            // getline(cin,target);
             cin >> target;
             cout << endl;
             while(target != "cancel"){
@@ -103,7 +105,6 @@ bool addCreditClass::addCredit(string userType, double maxAddBalanceThisSession)
               } else {
                 cout << "User does not exist, please re-input user, or cancel to cancel" << endl;
                 cout << "Username: ";
-                // getline(cin,target);
                 cin >> target;
                 cout << endl;
               }

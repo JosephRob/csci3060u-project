@@ -16,6 +16,8 @@ createClass::createClass(){
   newBalance = 0.0;
 }
 
+//this function will check if the string has a character
+//that is passed to the function
 bool createClass::contains(string toBeChecked, char checker){
   for (int i = 0; i < toBeChecked.length(); i++){
     if (toBeChecked[i] == checker){
@@ -25,6 +27,7 @@ bool createClass::contains(string toBeChecked, char checker){
   return false;
 }
 
+//this function will check so that the new username doesnt equal to any option name
 bool createClass::isFuncName(string toBeChecked){
   locale loc;
   string userFuncs[12] = {"advertise", "bid", "create", "delete", "refund", "showmenu", "addcredit", "cancel", "list", "show", "menu", "add"};
@@ -42,6 +45,7 @@ bool createClass::isFuncName(string toBeChecked){
   return false;
 }
 
+//this function checks if the number is a valid number
 bool createClass::isNumber(const string& s){
     if (s.empty())
        return false;
@@ -55,6 +59,8 @@ bool createClass::isNumber(const string& s){
     return true;
 }
 
+//this function checks if the user exists or not
+//because if user exists, we cannot have the same username
 bool createClass::checkUser(string userName){
     string line, word;
     ifstream inFile ("files/userList.txt");
@@ -74,7 +80,6 @@ bool createClass::checkUser(string userName){
     inFile.close();
     return false;
 }
-
 
 /*
 This is the create function,

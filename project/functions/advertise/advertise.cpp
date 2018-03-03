@@ -4,6 +4,7 @@
 #include <sstream>
 
 // HELPER FUNCTION(S)
+//this function checks if the number is a valid number
 bool advertiseClass::is_number(const string& s){
     if (s.empty())
        return false;
