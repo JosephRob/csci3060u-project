@@ -33,5 +33,5 @@ fails=$?+$fails
 echo "$fails test(s) failed"
 
 make clean
-cp filesTemp/* files
-rm filesTemp -r
+#cp filesTemp/* files
+#rm filesTemp -r
