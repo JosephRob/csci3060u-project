@@ -2,9 +2,12 @@
 declare -i place
 declare -i fails
 make
+rm filesTemp -r -s
 mkdir filesTemp
 cp files/* filesTemp -r
 rm files/dailyUpdate.txt
+echo "" > files/dailyUpdate.txt
+
 fails=0
 for file in ./tests/*
 do
@@ -28,10 +31,11 @@ do
     fi
 done
 echo "./files/dailyUpdate.txt"
-diff -q files/dailyUpdate.txt tests/expectedDay.txt
+diff  files/dailyUpdate.txt tests/expectedDay.txt
 fails=$?+$fails
 echo "$fails test(s) failed"
+cat files/dailyUpdate.txt
 
 make clean
-#cp filesTemp/* files
-#rm filesTemp -r
+cp filesTemp/* files
+rm filesTemp -r
