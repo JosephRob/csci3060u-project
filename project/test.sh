@@ -34,7 +34,6 @@ echo "./files/dailyUpdate.txt"
 diff  files/dailyUpdate.txt tests/expectedDay.txt
 fails=$?+$fails
 echo "$fails test(s) failed"
-cat files/dailyUpdate.txt
 
 make clean
 cp filesTemp/* files
